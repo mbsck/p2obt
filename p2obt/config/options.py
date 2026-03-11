@@ -49,8 +49,12 @@ local = SimpleNamespace(
     active="standard", standard="Targets", ciao="CIAO Offaxis Targets"
 )
 
-gaia = SimpleNamespace(
-    catalog="I/345/gaia2", fields=["*"], query=["Gmag", "pmRA", "pmDE"]
+gaia2 = SimpleNamespace(
+    catalog="I/345/gaia2", fields=["*"], query=["Plx", "Gmag", "pmRA", "pmDE"]
+)
+
+gaia3 = SimpleNamespace(
+    catalog="I/355/gaia3", fields=["*"], query=["Plx", "Gmag", "pmRA", "pmDE"]
 )
 
 tycho = SimpleNamespace(
@@ -85,9 +89,20 @@ irsa = SimpleNamespace(
 
 
 catalogs = SimpleNamespace(
-    available=["gaia", "tycho", "nomad", "two_mass", "wise", "mdfc", "simbad", "local"],
+    available=[
+        "gaia2",
+        "gaia3",
+        "tycho",
+        "nomad",
+        "two_mass",
+        "wise",
+        "mdfc",
+        "simbad",
+        "local",
+    ],
     local=local,
-    gaia=gaia,
+    gaia2=gaia2,
+    gaia3=gaia3,
     tycho=tycho,
     nomad=nomad,
     two_mass=two_mass,

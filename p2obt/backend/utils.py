@@ -81,8 +81,10 @@ def add_space(input_str: str) -> str:
     """Adds a space to the "HD xxxxxx" targets,
     between the HD and the rest."""
     if re.match(r"^HD\s*\d+", input_str, flags=re.IGNORECASE):
-        return re.sub(r"^HD", "HD ", input_str, flags=re.IGNORECASE)
-    return input_str
+        input_str = re.sub(r"^HD", "HD ", input_str, flags=re.IGNORECASE)
+
+    # HACK: To replace additional spaces if present
+    return input_str.replace("  ", " ").strip()
 
 
 def remove_spaces(input_str: str) -> str:

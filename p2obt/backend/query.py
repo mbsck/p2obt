@@ -11,6 +11,7 @@ from astroquery.vizier import Vizier
 from ..config.options import OPTIONS
 from .utils import add_space, remove_parenthesis
 
+VIZIER = Vizier()
 TARGET_INFO_FILE = list((Path(__file__).parent.parent / "config").glob("*.xlsx"))[0]
 TARGET_INFO_MAPPING = {
     "local.RA": "RA [hms]",
@@ -171,18 +172,19 @@ def get_catalog(name: str, catalog: str, match_radius: u.arcsec = 5.0):
         catalog_table = query_site.query_object(name)
     else:
         data = getattr(OPTIONS.catalogs, catalog)
-        query_site = Vizier(catalog=data.catalog, columns=data.fields)
+        query_site = VIZIER(catalog=data.catalog, columns=data.fields)
         catalog_table = query_site.query_object(name, radius=match_radius)
 
         # NOTE: Only get table from TableList if not empty
         if catalog_table:
             catalog_table = catalog_table[0]
+
     return catalog_table
 
 
 # TODO: Make a pretty print built in functionality for the dictionary.
 def query(
-    target_name: str,
+    name: str,
     catalogs: List | None = None,
     exclude_catalogs: List | None = None,
     match_radius: float | None = 5.0,
@@ -193,8 +195,8 @@ def query(
 
     Parameters
     ----------
-    target_name : str
-        The target's name.
+    name : str
+        The source name.
     catalogs : list of str, optional
         The catalogs to query. By default the catalogs "gaia",
         "tycho", "nomad", "2mass", "wise", "mdfc" and "simbad"
@@ -210,21 +212,20 @@ def query(
     target : dict
         The target's queried information.
     """
-    target_name = add_space(target_name)
-    target = {"name": target_name}
+    target = {"name": add_space(name)}
     if catalogs is None:
         catalogs = OPTIONS.catalogs.available[:]
 
     if exclude_catalogs is not None:
         catalogs = [catalog for catalog in catalogs if catalog not in exclude_catalogs]
     if "local" in catalogs:
-        local_target = query_local_catalog(target_name)
+        local_target = query_local_catalog(target["name"])
         catalogs.remove("local")
     else:
         local_target = {}
 
     for catalog in catalogs:
-        catalog_table = get_catalog(target_name, catalog, match_radius)
+        catalog_table = get_catalog(target["name"], catalog, match_radius)
         best_matches = get_best_match(target, catalog, catalog_table)
         target = {**target, **best_matches}
 

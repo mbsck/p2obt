@@ -269,6 +269,8 @@ def fill_acquisition(
         TEMPLATE_FILE, "acquisition", operational_mode=operational_mode
     )
     flux_lband, flux_nband = format_fluxes(target)
+
+    acquisition["TEL.TARG.PARALLAX"] = target.get("Plx", 0.0) / 1e3
     if "Kmag" in target:
         acquisition["TEL.TARG.MAG.K"] = np.round(np.ma.filled(target["Kmag"], 0), 2)
 
@@ -282,23 +284,16 @@ def fill_acquisition(
         acquisition["TEL.TARG.FLUX.N"] = flux_nband
 
     # TODO: Implement the LGS here as well somehow?
-    if "GSname" in target:
-        acquisition["COU.NGS.NAME"] = target["GSname"]
-
+    acquisition["COU.NGS.NAME"] = target.get("GSname", "Name")
     if "GSRa" in target:
         acquisition["COU.NGS.ALPHA"] = target["GSRa"]
         acquisition["COU.NGS.DELTA"] = target["GSDec"]
         acquisition["COU.NGS.SOURCE"] = "SETUPFILE"
 
-    if "GSpropRa" in target:
-        acquisition["COU.NGS.PMA"] = target["GSpropRa"]
-    if "GSpropDec" in target:
-        acquisition["COU.NGS.PMD"] = target["GSpropDec"]
-
-    if "GSepoch" in target:
-        acquisition["COU.NGS.EPOCH"] = target["GSepoch"]
-    if "GSequinox" in target:
-        acquisition["COU.NGS.EQUINOX"] = target["GSequinox"]
+    acquisition["COU.NGS.PMA"] = target.get("GSpropRa", 0.0)
+    acquisition["COU.NGS.PMD"] = target.get("GSpropDec", 0.0)
+    acquisition["COU.NGS.EPOCH"] = target.get("GSepoch", 2000.0)
+    acquisition["COU.NGS.EQUINOX"] = target.get("GSequinox", 2000.0)
 
     if "GSmag" in target:
         acquisition["COU.NGS.MAG"] = target["GSmag"]
