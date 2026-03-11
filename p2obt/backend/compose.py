@@ -268,46 +268,49 @@ def fill_acquisition(
     acquisition = load_template(
         TEMPLATE_FILE, "acquisition", operational_mode=operational_mode
     )
-
     flux_lband, flux_nband = format_fluxes(target)
+    if "Kmag" in target:
+        acquisition["TEL.TARG.MAG.K"] = np.round(np.ma.filled(target["Kmag"], 0), 2)
+
+    if "Hmag" in target:
+        acquisition["TEL.TARG.MAG.H"] = np.round(np.ma.filled(target["Hmag"], 0), 2)
+
+    if flux_lband is not None:
+        acquisition["TEL.TARG.FLUX.L"] = flux_lband
+
+    if flux_nband is not None:
+        acquisition["TEL.TARG.FLUX.N"] = flux_nband
+
+    # TODO: Implement the LGS here as well somehow?
+    if "GSname" in target:
+        acquisition["COU.NGS.NAME"] = target["GSname"]
 
     if "GSRa" in target:
-        acquisition["COU.AG.ALPHA"] = target["GSRa"]
-        acquisition["COU.AG.DELTA"] = target["GSDec"]
-        acquisition["COU.AG.GSSOURCE"] = "SETUPFILE"
+        acquisition["COU.NGS.ALPHA"] = target["GSRa"]
+        acquisition["COU.NGS.DELTA"] = target["GSDec"]
+        acquisition["COU.NGS.SOURCE"] = "SETUPFILE"
 
     if "GSpropRa" in target:
-        acquisition["COU.AG.PMA"] = target["GSpropRa"]
+        acquisition["COU.NGS.PMA"] = target["GSpropRa"]
     if "GSpropDec" in target:
-        acquisition["COU.AG.PMD"] = target["GSpropDec"]
+        acquisition["COU.NGS.PMD"] = target["GSpropDec"]
 
     if "GSepoch" in target:
-        acquisition["COU.AG.EPOCH"] = target["GSepoch"]
+        acquisition["COU.NGS.EPOCH"] = target["GSepoch"]
     if "GSequinox" in target:
-        acquisition["COU.AG.EQUINOX"] = target["GSequinox"]
+        acquisition["COU.NGS.EQUINOX"] = target["GSequinox"]
 
     if "GSmag" in target:
-        acquisition["COU.GS.MAG"] = target["GSmag"]
+        acquisition["COU.NGS.MAG"] = target["GSmag"]
     elif "Vmag" in target:
-        acquisition["COU.GS.MAG"] = target["Vmag"]
+        acquisition["COU.NGS.MAG"] = target["Vmag"]
     elif "FLUX_V" in target:
-        acquisition["COU.GS.MAG"] = target["FLUX_V"]
+        acquisition["COU.NGS.MAG"] = target["FLUX_V"]
 
     if "ut" in array_configuration:
         array_configuration = "UTs"
 
     acquisition["ISS.BASELINE"] = array_configuration
-
-    if flux_lband is not None:
-        acquisition["SEQ.TARG.FLUX.L"] = flux_lband
-    if flux_nband is not None:
-        acquisition["SEQ.TARG.FLUX.N"] = flux_nband
-
-    if "Kmag" in target:
-        acquisition["SEQ.TARG.MAG.K"] = np.round(np.ma.filled(target["Kmag"], 0), 2)
-
-    if operational_mode == "gra4mat" and "Hmag" in target:
-        acquisition["SEQ.TARG.MAG.H"] = np.round(np.ma.filled(target["Hmag"], 0), 2)
     return acquisition
 
 
