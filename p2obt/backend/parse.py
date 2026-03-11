@@ -95,13 +95,17 @@ def parse_observation_type(line: str) -> str:
         Either "LOW", "MED" or "HIGH".
     """
     line = line.lower()
-    if any(res in line for res in ["sm", "servicemode", "service-mode", "service mode"]):
+    if any(
+        res in line for res in ["sm", "servicemode", "service-mode", "service mode"]
+    ):
         return "sm"
     if any(res in line for res in ["im", "imaging", "image"]):
         return "im"
     if any(res in line for res in ["ts", "timeseries", "time-series", "time series"]):
         return "ts"
-    if any(res in line for res in ["vm", "visitormode", "visitor-mode", "visitor mode"]):
+    if any(
+        res in line for res in ["vm", "visitormode", "visitor-mode", "visitor mode"]
+    ):
         return "vm"
     return ""
 

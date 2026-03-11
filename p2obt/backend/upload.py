@@ -188,7 +188,7 @@ def create_remote_container(
     connection: p2api.p2api.ApiConnection,
     name: str,
     container_id: int,
-    container_type: str = "concatenation"
+    container_type: str = "concatenation",
 ) -> int:
     """Creates a container on p2.
 
