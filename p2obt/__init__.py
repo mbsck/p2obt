@@ -4,4 +4,4 @@ from .automate import create_ob, create_obs
 from .backend import *
 from .config.options import OPTIONS
 
-__version__ = "4.2.0"
+__version__ = "4.2.1"

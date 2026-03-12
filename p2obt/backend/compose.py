@@ -163,14 +163,11 @@ def format_ra_and_dec(target: Dict) -> Tuple[str, str]:
     return ra_hms, dec_dms
 
 
-def format_fluxes(target: Dict) -> Tuple[float, float]:
+def format_fluxes(target: Dict) -> Tuple[float | None, float | None]:
     """Correctly gets and formats the fluxes from the queried data."""
     flux_lband, flux_nband = None, None
-    lband_keys, nband_keys = ["Lflux", "med-Lflux", "W1mag"], [
-        "Nflux",
-        "med-Nflux",
-        "W3mag",
-    ]
+    lband_keys = ["Lflux", "med-Lflux", "W1mag"]
+    nband_keys = ["Nflux", "med-Nflux", "W3mag"]
 
     for lband_key, nband_key in zip(lband_keys, nband_keys):
         if lband_key in target and flux_lband is None:
@@ -182,9 +179,8 @@ def format_fluxes(target: Dict) -> Tuple[float, float]:
             flux_nband = target[nband_key]
             if "mag" in nband_key:
                 flux_nband = 31.674 * 10.0 ** (-flux_nband / 2.5)
-    return round(flux_lband, 2) if flux_lband is not None else 0.0, (
-        round(flux_nband, 2) if flux_nband is not None else 0.0
-    )
+
+    return flux_lband, flux_nband
 
 
 def fill_header(
@@ -222,12 +218,13 @@ def fill_header(
     prop_ra, prop_dec = format_proper_motions(target)
 
     header_user["name"] = ob_name
+
+    # TODO: Implement GS Parallax as well
     user_comments = []
-    if "GSname" in target:
-        user_comments.append(f"GS: {target['GSname']}")
     if "GSdist" in target:
         gs_distance = float(target["GSdist"])
         user_comments.append(f"GS Distance: {gs_distance:.2f} arcsec")
+
     header_user["userComments"] = ". ".join(user_comments)
     header_target["TARGET.NAME"] = target["name"].replace(" ", "_")
     header_target["ra"], header_target["dec"] = ra_hms, dec_dms
@@ -249,39 +246,34 @@ def fill_header(
     return header
 
 
-def fill_acquisition(
-    target: Dict, operational_mode: str, array_configuration: str
-) -> Dict:
+def fill_acquisition(target: Dict, op_mode: str, array_configuration: str) -> Dict:
     """Gets the for the operational mode correct acquisition template
     and then fills it in with the information from the query.
 
     Parameters
     ----------
     target : dict
-    operational_mode : str
+    op_mode : str
     array_configuration : str
 
     Returns
     -------
     acquisition : dict
     """
-    acquisition = load_template(
-        TEMPLATE_FILE, "acquisition", operational_mode=operational_mode
-    )
-    flux_lband, flux_nband = format_fluxes(target)
-
+    acquisition = load_template(TEMPLATE_FILE, "acquisition", operational_mode=op_mode)
     acquisition["TEL.TARG.PARALLAX"] = target.get("Plx", 0.0) / 1e3
     if "Kmag" in target:
-        acquisition["TEL.TARG.MAG.K"] = np.round(np.ma.filled(target["Kmag"], 0), 2)
+        acquisition["TEL.TARG.MAG.K"] = round(float(np.ma.filled(target["Kmag"], 0)), 2)
 
     if "Hmag" in target:
-        acquisition["TEL.TARG.MAG.H"] = np.round(np.ma.filled(target["Hmag"], 0), 2)
+        acquisition["TEL.TARG.MAG.H"] = round(float(np.ma.filled(target["Hmag"], 0)), 2)
 
+    flux_lband, flux_nband = format_fluxes(target)
     if flux_lband is not None:
-        acquisition["TEL.TARG.FLUX.L"] = flux_lband
+        acquisition["TEL.TARG.FLUX.L"] = round(float(flux_lband), 2)
 
     if flux_nband is not None:
-        acquisition["TEL.TARG.FLUX.N"] = flux_nband
+        acquisition["TEL.TARG.FLUX.N"] = round(float(flux_nband), 2)
 
     # TODO: Implement the LGS here as well somehow?
     acquisition["COU.NGS.NAME"] = target.get("GSname", "Name")
@@ -290,18 +282,20 @@ def fill_acquisition(
         acquisition["COU.NGS.DELTA"] = target["GSDec"]
         acquisition["COU.NGS.SOURCE"] = "SETUPFILE"
 
-    acquisition["COU.NGS.PMA"] = target.get("GSpropRa", 0.0)
-    acquisition["COU.NGS.PMD"] = target.get("GSpropDec", 0.0)
-    acquisition["COU.NGS.EPOCH"] = target.get("GSepoch", 2000.0)
-    acquisition["COU.NGS.EQUINOX"] = target.get("GSequinox", 2000.0)
+    acquisition["COU.NGS.PMA"] = float(target.get("GSpropRa", 0.0))
+    acquisition["COU.NGS.PMD"] = float(target.get("GSpropDec", 0.0))
+    acquisition["COU.NGS.EPOCH"] = float(target.get("GSepoch", 2000.0))
+    acquisition["COU.NGS.EQUINOX"] = float(target.get("GSequinox", 2000.0))
 
+    gs_mag = 0.0
     if "GSmag" in target:
-        acquisition["COU.NGS.MAG"] = target["GSmag"]
+        gs_mag = target["GSmag"]
     elif "Vmag" in target:
-        acquisition["COU.NGS.MAG"] = target["Vmag"]
+        gs_mag = target["Vmag"]
     elif "FLUX_V" in target:
-        acquisition["COU.NGS.MAG"] = target["FLUX_V"]
+        gs_mag = target["FLUX_V"]
 
+    acquisition["COU.NGS.MAG"] = round(float(gs_mag), 2)
     if "ut" in array_configuration:
         array_configuration = "UTs"
 
