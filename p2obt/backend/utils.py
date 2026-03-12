@@ -151,5 +151,6 @@ def convert_proper_motions(*proper_motions: u.mas, rfloat: bool | None = True) -
         proper_motions = map(lambda x: x * u.mas, proper_motions)
     else:
         raise IOError("Please input proper motions as float or" " astropy.units.mas.")
+
     proper_motions = u.Quantity([x.to(u.arcsec) for x in proper_motions])
     return proper_motions.value if rfloat else proper_motions

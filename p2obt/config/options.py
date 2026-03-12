@@ -79,8 +79,8 @@ mdfc = SimpleNamespace(
 
 simbad = SimpleNamespace(
     catalog=None,
-    fields=["sp_type", "pmra", "pmdec", "allfluxes"],
-    query=["sp_type", "ra", "dec", "pmra", "pmdec", "V", "H", "K"],
+    fields=["sp_type", "pmra", "pmdec", "allfluxes", "plx_value"],
+    query=["sp_type", "ra", "dec", "pmra", "pmdec", "G", "V", "H", "K", "plx_value"],
 )
 
 irsa = SimpleNamespace(

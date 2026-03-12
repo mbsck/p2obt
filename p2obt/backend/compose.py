@@ -144,11 +144,19 @@ def get_observation_settings(
 def format_proper_motions(target: Dict) -> Tuple[float, float]:
     """Correctly formats the right ascension's and declination's
     proper motions."""
-    pmra, pmdec = convert_proper_motions(target.get("pmra", 0), target.get("pmdec", 0))
+    if np.ma.filled(target.get("pmRA", 0), 0) != 0:
+        pmra = np.ma.filled(target["pmRA"], 0)
+        pmdec = np.ma.filled(target["pmDE"], 0)
+    else:
+        pmra, pmdec = target.get("pmra", 0), target.get("pmdec", 0)
+
+    pmra, pmdec = convert_proper_motions(pmra, pmdec)
     if "local.propRa" in target:
-        pmra = (target.get("local.propRa", 0),)
+        pmra = target.get("local.propRa", 0)
+
     if "local.propDEC" in target:
         pmdec = target.get("local.propDec", 0)
+
     return pmra, pmdec
 
 
@@ -261,7 +269,12 @@ def fill_acquisition(target: Dict, op_mode: str, array_configuration: str) -> Di
     acquisition : dict
     """
     acquisition = load_template(TEMPLATE_FILE, "acquisition", operational_mode=op_mode)
-    acquisition["TEL.TARG.PARALLAX"] = target.get("Plx", 0.0) / 1e3
+    if np.ma.filled(target.get("Plx", 0), 0) != 0:
+        parallax = np.ma.filled(target["Plx"], 0)
+    else:
+        parallax = target.get("plx_value", 0)
+
+    acquisition["TEL.TARG.PARALLAX"] = round(float(parallax) / 1e3, 6)
     if "Kmag" in target:
         acquisition["TEL.TARG.MAG.K"] = round(float(np.ma.filled(target["Kmag"], 0)), 2)
 
@@ -288,8 +301,14 @@ def fill_acquisition(target: Dict, op_mode: str, array_configuration: str) -> Di
     acquisition["COU.NGS.EQUINOX"] = float(target.get("GSequinox", 2000.0))
 
     gs_mag = 0.0
-    if "GSmag" in target:
+    if "Gmag" in target:
+        gs_mag = target["Gmag"]
+    elif np.ma.filled(target.get("G", 0), 0) != 0:
+        gs_mag = target["G"]
+    elif "GSmag" in target:
         gs_mag = target["GSmag"]
+    elif np.ma.filled(target.get("V", 0), 0) != 0:
+        gs_mag = target["V"]
     elif "Vmag" in target:
         gs_mag = target["Vmag"]
     elif "FLUX_V" in target:

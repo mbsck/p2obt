@@ -46,6 +46,7 @@ def parse_array_config(line: str | None = None) -> str:
         line = line.lower()
         if "uts" in line:
             return "UTs"
+
         if any(config in line for config in at_configs):
             if "small" in line:
                 return "small"
