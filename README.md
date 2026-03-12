@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![Lifecycle: production](https://img.shields.io/badge/lifecycle-production-orange.svg)
 
-The Phase 2 OB tools (p2obt) have been made to streamline/automate
+The Phase 2 OB tool (p2obt) has been made to streamline/automate
 the process of MATISSE observation (ob) preparation on p2.
 
 More information can be found in the [**documentation**](https://mbsck.github.io/p2obt/) and for quick access under the following links: 
