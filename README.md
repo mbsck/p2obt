@@ -4,7 +4,7 @@
 ![Lifecycle: production](https://img.shields.io/badge/lifecycle-production-orange.svg)
 
 The Phase 2 OB tool (p2obt) has been made to streamline/automate
-the process of MATISSE observation (ob) preparation on p2.
+the process of MATISSE observation (ob) preparation on ESO's p2 environment.
 
 More information can be found in the [**documentation**](https://mbsck.github.io/p2obt/) and for quick access under the following links: 
 
