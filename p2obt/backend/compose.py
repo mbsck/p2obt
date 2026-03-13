@@ -405,7 +405,7 @@ def compose_ob(
     target : dict
         A dictionary containg all the target's information.
     """
-    if any(x not in ["uts", "small", "medium", "large", "extended"] for x in array):
+    if any(x not in ["UTs", "small", "medium", "large", "extended"] for x in array):
         raise IOError(
             "Unknown array configuration provided!"
             " Choose from 'UTs', 'small', 'medium',"

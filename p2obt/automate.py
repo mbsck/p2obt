@@ -1,7 +1,7 @@
 import logging
 import warnings
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, Iterable, List
 
 from p2api.p2api import ApiConnection
 
@@ -37,7 +37,7 @@ OPERATIONAL_MODES = {
 def create_ob(
     target: str,
     ob_kind: str,
-    array: str,
+    array: str | List[str],
     mode: str = "st",
     sci_name: str | None = None,
     tag: str | None = None,
@@ -59,9 +59,9 @@ def create_ob(
         The name of the target.
     ob_kind : str
         The type of OB. If it is a science target ("sci") or a calibrator ("cal").
-    array_configuration : str
+    array : str or list of str
         Determines the array configuration. Possible values are "UTs",
-        "small", "medium", "large", "extended".
+        "small", "medium", "large", "extended" or a list with multiple entries.
     operational_mode : str, optional
         The mode of operation for MATISSE. Can be either "st"/"standalone"
         for the MATISSE-standalone mode or "gr"/"gra4mat" for GRA4MAT.
@@ -107,6 +107,9 @@ def create_ob(
             ob_kind = "cal"
 
         obs_type = parse_observation_type(obs_type)
+        if not isinstance(array, Iterable) or isinstance(array, str):
+            array = [array]
+
         ob = compose_ob(
             target, ob_kind, array, mode, sci_name, tag, resolution, obs_type
         )

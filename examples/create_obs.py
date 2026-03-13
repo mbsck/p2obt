@@ -6,6 +6,7 @@ This is meant to give an example on how to use the
 fully automated pipeline of p2obt for ob-creation, namely the script
 "create_obs".
 """
+
 from pathlib import Path
 
 from p2obt import OPTIONS, create_obs
@@ -44,8 +45,15 @@ OPTIONS.constraints.transparency = "clear"
 # This will either upload the obs to a the specified container (keyword
 # 'container_id' on p2) or make them locally, if an 'output_dir' is
 # specified.
-create_obs(targets=sci_lst, calibrators=cal_lst,
-           orders=order_lst, tags=tag_lst,
-           configuration="small", modes="gr",
-           resolution=res_dict, output_dir=output_dir,
-           server="demo", user_name="52052")
+create_obs(
+    targets=sci_lst,
+    calibrators=cal_lst,
+    orders=order_lst,
+    tags=tag_lst,
+    configuration="small",
+    modes="gr",
+    resolution=res_dict,
+    output_dir=output_dir,
+    server="demo",
+    user_name="52052",
+)
