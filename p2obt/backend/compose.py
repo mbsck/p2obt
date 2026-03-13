@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Dict, Tuple
+from typing import Dict, List, Tuple
 
 import astropy.units as u
 import numpy as np
@@ -113,7 +113,7 @@ def set_ob_name(
 
 
 def get_observation_settings(
-    resolution: str, operational_mode: str, array_configuration: str
+    resolution: str, op_mode: str, array: List[str]
 ) -> Tuple[str, float, float, bool]:
     """Gets the observation settings from the `options` corresponding
     to the resolution, operational mode and array configuration.
@@ -121,23 +121,22 @@ def get_observation_settings(
     Parameters
     ----------
     resolution : str
-    operational_mode : str
-    array_configuration : str
+    op_mode : str
+    array : list of str
 
     Returns
     -------
     resolution : str
     integration_time : float
     central_wl : float
+    photometry : bool
     """
-    array = "uts" if "ut" in array_configuration else "ats"
-    photometry = getattr(getattr(OPTIONS.photometry, operational_mode), array)
+    array_type = "uts" if "UTs" in array else "ats"
+    photometry = getattr(getattr(OPTIONS.photometry, op_mode), array_type)
     integration_time = getattr(
-        getattr(getattr(OPTIONS.dit, operational_mode), array), resolution
+        getattr(getattr(OPTIONS.dit, op_mode), array_type), resolution
     )
-    central_wl = getattr(
-        getattr(getattr(OPTIONS.wl0, operational_mode), array), resolution
-    )
+    central_wl = getattr(getattr(getattr(OPTIONS.wl0, op_mode), array_type), resolution)
     return resolution.upper(), integration_time, central_wl, photometry
 
 
@@ -193,8 +192,8 @@ def format_fluxes(target: Dict) -> Tuple[float | None, float | None]:
 
 def fill_header(
     target: Dict,
-    observation_type: str,
-    array_configuration: str,
+    obs_type: str,
+    array: List[str],
     sci_name: str | None = None,
     tag: str | None = None,
 ) -> Dict:
@@ -203,8 +202,8 @@ def fill_header(
     Parameters
     ----------
     target : dict
-    observation_type : str
-    array_configuration : str
+    obs_type : str
+    array : list of str
     sci_name : str, optional
     tag : str, optional
 
@@ -221,7 +220,7 @@ def fill_header(
     header_observation = load_template(
         TEMPLATE_FILE, "header", sub_header="observation"
     )
-    ob_name = set_ob_name(target, observation_type, sci_name, tag)
+    ob_name = set_ob_name(target, obs_type, sci_name, tag)
     ra_hms, dec_dms = format_ra_and_dec(target)
     prop_ra, prop_dec = format_proper_motions(target)
 
@@ -244,7 +243,7 @@ def fill_header(
         OPTIONS.constraints.transparency
     ]
     header_constraints["watervapour"] = OPTIONS.constraints.pwv
-    if "ut" in array_configuration:
+    if "UTs" in array:
         header_constraints["moon_angular_distance"] = 10
 
     header["user"] = header_user
@@ -255,7 +254,7 @@ def fill_header(
 
 
 def fill_acquisition(
-    target: Dict, op_mode: str, array_config: str, obs_type: str
+    target: Dict, op_mode: str, array: List[str], obs_type: str
 ) -> Dict:
     """Gets the for the operational mode correct acquisition template
     and then fills it in with the information from the query.
@@ -264,7 +263,7 @@ def fill_acquisition(
     ----------
     target : dict
     op_mode : str
-    array_config : str
+    array : list of str
     obs_type: str
 
     Returns
@@ -318,10 +317,6 @@ def fill_acquisition(
         gs_mag = target["FLUX_V"]
 
     acquisition["COU.NGS.MAG"] = round(float(gs_mag), 2)
-    if "ut" in array_config:
-        array_config = "UTs"
-
-    acquisition["ISS.BASELINE"] = array_config
 
     if obs_type == "im":
         obs_type = "imaging"
@@ -329,15 +324,16 @@ def fill_acquisition(
         obs_type = "time-series"
 
     acquisition["ISS.VLTITYPE"] = obs_type
+    acquisition["ISS.BASELINE"] = array
     return acquisition
 
 
 def fill_observation(
     target: Dict,
     resolution: str,
-    observation_type: str,
-    operational_mode: str,
-    array_configuration: str,
+    obs_type: str,
+    op_type: str,
+    array: List[str],
 ) -> Dict:
     """Gets the for the operational mode correct acquisition template
     and then fills it in with the information from the query.
@@ -346,22 +342,20 @@ def fill_observation(
     ----------
     target : dict
     resolution : str
-    observation_type : str
-    operational_mode : str
-    array_configuration : str
+    obs_type : str
+    op_type : str
+    array : str
 
     Returns
     -------
     acquisition : dict
     """
-    observation = load_template(
-        TEMPLATE_FILE, "observation", operational_mode=operational_mode
-    )
+    observation = load_template(TEMPLATE_FILE, "observation", operational_mode=op_type)
     resolution, dit, wl0, photometry = get_observation_settings(
-        resolution, operational_mode, array_configuration
+        resolution, op_type, array
     )
-    observation_type = "SCIENCE" if observation_type == "sci" else "CALIB"
-    observation["DPR.CATG"] = observation_type
+    obs_type = "SCIENCE" if obs_type == "sci" else "CALIB"
+    observation["DPR.CATG"] = obs_type
     observation["INS.DIL.NAME"] = resolution
     observation["DET1.DIT"] = dit
     observation["SEQ.PHOTO.ST"] = "T" if photometry else "F"
@@ -372,7 +366,7 @@ def fill_observation(
 def compose_ob(
     target_name: str,
     ob_kind: str,
-    array: str,
+    array: List[str],
     mode: str = "st",
     sci_name: str | None = None,
     tag: str | None = None,
@@ -387,7 +381,7 @@ def compose_ob(
         The target's name.
     ob_kind : str
         The type of OB. If it is a science target ("sci") or a calibrator ("cal").
-    array : str
+    array : list of str
         Determines the array configuration. Possible values are "UTs",
         "small", "medium", "large", "extended".
     mode : str, optional
@@ -411,11 +405,7 @@ def compose_ob(
     target : dict
         A dictionary containg all the target's information.
     """
-    array = array.lower()
-    if any(
-        x not in ["uts", "small", "medium", "large", "extended"]
-        for x in array.split(",")
-    ):
+    if any(x not in ["uts", "small", "medium", "large", "extended"] for x in array):
         raise IOError(
             "Unknown array configuration provided!"
             " Choose from 'UTs', 'small', 'medium',"

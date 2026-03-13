@@ -1,7 +1,7 @@
 import logging
+import warnings
 from pathlib import Path
 from typing import Dict, List
-from warnings import warn
 
 from p2api.p2api import ApiConnection
 
@@ -18,13 +18,14 @@ from .backend.parse import (
 from .backend.upload import create_remote_container, get_remote_run, login, upload_ob
 from .backend.utils import create_night_plan_dict
 
-# FIXME: Raise more errors (especially for the quyering).
-# Should avoid problems.
+warnings.filterwarnings("ignore", category=RuntimeWarning)
+
+# TODO: Raise more errors (especially for the query)
 # TODO: Include tests for the OBs that test if the values of a new OB are correct
 # and that run automatically.
 # TODO: The local file resolution overwrite might not work anymore.
 # Is it needed?
-# TODO: Make this shorter? Or into an option even?
+# TODO: Make this into an option
 OPERATIONAL_MODES = {
     "st": ["standalone"],
     "gr": ["GRA4MAT"],
@@ -98,7 +99,7 @@ def create_ob(
                 connection = login(user_name, store_password, remove_password, server)
 
         if sci_name is not None and ob_kind == "sci":
-            warn(
+            warnings.warn(
                 "[WARNING]: The OB was specified as a science OB,"
                 " but a science target name was separately specified."
                 " It will be changed to a calibrator."
@@ -288,18 +289,11 @@ def create_obs(
                             )
 
                     image_entry = ids.get(target, None)
-
-                    # TODO: Make sure that the convention is correct (imaging runs)
-                    # TODO: Make different names for OB and SCI target
-                    # TODO: Do the same for the OB name if im run (or time series?)
                     if image_entry is not None:
-                        container_name = f"{target}-{block['array']}"
+                        container_name = f"{target}-{','.join(block['array'])}"
                     else:
                         container_name = target
-                    # TODO: Also add time link for time series here
 
-                    # TODO: Does this need to be a folder here for visitor mode or not?
-                    # TODO: Fix this so that OBs are always created in the right group
                     target_id = create_remote_container(
                         connection,
                         container_name,

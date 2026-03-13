@@ -31,7 +31,7 @@ def parse_operational_mode(line: str) -> str:
     return ""
 
 
-def parse_array_config(line: str | None = None) -> str:
+def parse_array_config(line: str | None = None) -> List[str]:
     """Parses the array configuration from string containing it.
 
     Parameters
@@ -48,14 +48,14 @@ def parse_array_config(line: str | None = None) -> str:
     if line is not None:
         line = line.lower()
         if "uts" in line:
-            return "UTs"
+            return ["UTs"]
 
         configs = [c for c in at_configs if c in line]
 
     if not configs:
-        return ""
+        return [""]
 
-    return ",".join(configs)
+    return configs
 
 
 def parse_resolution(line: str) -> str:
