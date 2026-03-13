@@ -114,7 +114,7 @@ def set_ob_name(
 
 def get_observation_settings(
     resolution: str, operational_mode: str, array_configuration: str
-) -> Tuple[str, float]:
+) -> Tuple[str, float, float, bool]:
     """Gets the observation settings from the `options` corresponding
     to the resolution, operational mode and array configuration.
 
@@ -254,7 +254,9 @@ def fill_header(
     return header
 
 
-def fill_acquisition(target: Dict, op_mode: str, array_configuration: str) -> Dict:
+def fill_acquisition(
+    target: Dict, op_mode: str, array_config: str, obs_type: str
+) -> Dict:
     """Gets the for the operational mode correct acquisition template
     and then fills it in with the information from the query.
 
@@ -262,7 +264,8 @@ def fill_acquisition(target: Dict, op_mode: str, array_configuration: str) -> Di
     ----------
     target : dict
     op_mode : str
-    array_configuration : str
+    array_config : str
+    obs_type: str
 
     Returns
     -------
@@ -315,10 +318,17 @@ def fill_acquisition(target: Dict, op_mode: str, array_configuration: str) -> Di
         gs_mag = target["FLUX_V"]
 
     acquisition["COU.NGS.MAG"] = round(float(gs_mag), 2)
-    if "ut" in array_configuration:
-        array_configuration = "UTs"
+    if "ut" in array_config:
+        array_config = "UTs"
 
-    acquisition["ISS.BASELINE"] = array_configuration
+    acquisition["ISS.BASELINE"] = array_config
+
+    if obs_type == "im":
+        obs_type = "imaging"
+    elif obs_type == "ts":
+        obs_type = "time-series"
+
+    acquisition["ISS.VLTITYPE"] = obs_type
     return acquisition
 
 
@@ -363,10 +373,11 @@ def compose_ob(
     target_name: str,
     ob_kind: str,
     array: str,
-    mode: str | None = "st",
+    mode: str = "st",
     sci_name: str | None = None,
     tag: str | None = None,
-    resolution: str | None = "low",
+    resolution: str = "low",
+    obs_type: str = "snapshot",
 ) -> Dict:
     """Composes the dictionary
 
@@ -390,6 +401,10 @@ def compose_ob(
         The calibrator tag (L, N or LN).
     resolution : str, optional
         The resolution of the OB. Can be either "low", "med" or "high".
+    obs_type : str, optional
+        The type of the observation. Can be "snapshot", "ts/time/time series",
+        or "im/imaging", for "snapshot", "time-series", or "imaging" respectively.
+        Default is "snapshot".
 
     Returns
     -------
@@ -397,7 +412,10 @@ def compose_ob(
         A dictionary containg all the target's information.
     """
     array = array.lower()
-    if array not in ["uts", "small", "medium", "large", "extended"]:
+    if any(
+        x not in ["uts", "small", "medium", "large", "extended"]
+        for x in array.split(",")
+    ):
         raise IOError(
             "Unknown array configuration provided!"
             " Choose from 'UTs', 'small', 'medium',"
@@ -432,6 +450,6 @@ def compose_ob(
 
     target = query(target_name)
     header = fill_header(target, ob_kind, array, sci_name, tag)
-    acquisition = fill_acquisition(target, mode, array)
+    acquisition = fill_acquisition(target, mode, array, obs_type)
     observation = fill_observation(target, resolution, ob_kind, mode, array)
     return {"header": header, "acquisition": acquisition, "observation": observation}

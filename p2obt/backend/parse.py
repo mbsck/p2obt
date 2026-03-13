@@ -21,10 +21,13 @@ def parse_operational_mode(line: str) -> str:
     line = line.lower()
     if "gra4mat" in line:
         return "gr"
+
     if "matisse" in line:
         return "st"
+
     if "both" in line:
         return "both"
+
     return ""
 
 
@@ -41,22 +44,18 @@ def parse_array_config(line: str | None = None) -> str:
     array_configuration : str
         Either "UTs", "small", "medium", "large" or "extended".
     """
-    at_configs = ["ATs", "small", "medium", "large", "extended"]
+    at_configs, configs = ["ATs", "small", "medium", "large", "extended"], []
     if line is not None:
         line = line.lower()
         if "uts" in line:
             return "UTs"
 
-        if any(config in line for config in at_configs):
-            if "small" in line:
-                return "small"
-            if "medium" in line:
-                return "medium"
-            if "large" in line:
-                return "large"
-            if "extended" in line:
-                return "extended"
-    return ""
+        configs = [c for c in at_configs if c in line]
+
+    if not configs:
+        return ""
+
+    return ",".join(configs)
 
 
 def parse_resolution(line: str) -> str:
@@ -75,10 +74,13 @@ def parse_resolution(line: str) -> str:
     line = line.lower()
     if any(res in line for res in ["lr", "low"]):
         return "LOW"
+
     if any(res in line for res in ["mr", "med", "medium"]):
         return "MED"
+
     if any(res in line for res in ["hr", "high"]):
         return "HIGH"
+
     return ""
 
 
@@ -162,6 +164,7 @@ def parse_night_name(night_name: str) -> str:
     """
     if "full" in night_name:
         return night_name
+
     regex = r"(?i)night\s+(\d+).*?((\d{1,2}\s+(?:\w{3}|\w+))|(\w+\s+\d{1,2}))"
     day_month, month_day = "%d %b", "%B %d"
 
@@ -207,6 +210,7 @@ def parse_line(parts: str) -> str:
             ):
                 target_name_cutoff = index
                 break
+
     return " ".join(parts[1:target_name_cutoff])
 
 

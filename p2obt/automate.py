@@ -41,6 +41,7 @@ def create_ob(
     sci_name: str | None = None,
     tag: str | None = None,
     resolution: str = "low",
+    obs_type: str = "snapshot",
     connection: ApiConnection | None = None,
     container_id: int | None = None,
     store_password: bool = True,
@@ -71,10 +72,18 @@ def create_ob(
         The calibrator tag (L, N or LN).
     resolution : str, optional
         The resolution of the OB. Can be either "low", "med" or "high".
+    obs_type : str, optional
+        The type of the observation. Can be "snapshot", "ts/time/time series",
+        or "im/imaging", for "snapshot", "time-series", or "imaging" respectively.
+        Default is "snapshot".
     connection : ApiConnection, optional
         The connection to the P2 database.
     container_id : int, optional
         The id of the container on P2.
+    store_password: bool, optional
+        If 'True' the password will be stored in the keyring.
+    remove_password: bool, optional
+        If 'True' the password will be removed from the keyring.
     user_name : str, optional
         The user name for the P2 database.
     server : str, optional
@@ -87,6 +96,7 @@ def create_ob(
         if container_id is not None:
             if connection is None:
                 connection = login(user_name, store_password, remove_password, server)
+
         if sci_name is not None and ob_kind == "sci":
             warn(
                 "[WARNING]: The OB was specified as a science OB,"
@@ -94,14 +104,10 @@ def create_ob(
                 " It will be changed to a calibrator."
             )
             ob_kind = "cal"
+
+        obs_type = parse_observation_type(obs_type)
         ob = compose_ob(
-            target,
-            ob_kind,
-            array,
-            mode,
-            sci_name,
-            tag,
-            resolution,
+            target, ob_kind, array, mode, sci_name, tag, resolution, obs_type
         )
         upload_ob(connection, ob, container_id)
 
@@ -114,7 +120,7 @@ def create_ob(
 
 
 def create_obs(
-    night_plan: Path | None = None,
+    night_plan: Path | Dict | None = None,
     container_id: int | None = None,
     targets: List[str] | None = None,
     calibrators: List[List[str] | str] | None = None,
@@ -215,7 +221,6 @@ def create_obs(
                     "type": ob_type or night["type"],
                 }
             )
-
         if connection is not None:
             run_dir = None
             if container_id is None:
@@ -223,6 +228,13 @@ def create_obs(
                 run_id = get_remote_run(connection, run_prog_id)
             else:
                 run_id = container_id
+
+            if run_id is None:
+                raise ValueError(
+                    "'container_id' was not provided and 'run_id' could"
+                    " not be parsed from 'progId'. For the latter, it might"
+                    " be wrong in the night plan?"
+                )
         else:
             run_dir = output_dir / "".join(run_key.split(",")[0].strip().split())
             run_dir.mkdir(parents=True, exist_ok=True)
@@ -261,13 +273,18 @@ def create_obs(
 
                 # TODO: For the imaging also change the OB mode to imaging instead of snapshot
                 if night_id is not None:
-                    if block["type"] in ["ts", "im"]:
+                    if block["type"] in ["im"]:
                         container_type = (
                             "group" if block["type"] == "im" else "timelink"
                         )
                         if target not in ids:
                             ids[target] = create_remote_container(
                                 connection, f"Image-{target}", night_id, container_type
+                            )
+                    elif block["type"] in ["ts"]:
+                        if target not in ids:
+                            ids[target] = create_remote_container(
+                                connection, f"{target}_timeseries", night_id, "timelink"
                             )
 
                     image_entry = ids.get(target, None)
@@ -319,6 +336,7 @@ def create_obs(
                         sci_name,
                         tag,
                         block["res"],
+                        block["type"],
                         connection,
                         target_id,
                         output_dir=target_dir,

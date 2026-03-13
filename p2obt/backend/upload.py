@@ -163,7 +163,7 @@ def get_remote_run(connection: p2api.p2api.ApiConnection, run_id: str) -> int | 
         If not found return "None".
     """
     for run in connection.getRuns()[0]:
-        if run_id == run["progId"]:
+        if run_id.strip() == run["progId"].strip():
             return run["containerId"]
     return None
 
