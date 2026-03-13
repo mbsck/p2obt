@@ -35,13 +35,12 @@ dependencies = [
 [tool.setuptools.dynamic]
 version = { attr = "p2obt.__version__" }
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
   "numpydoc>=1.8.0",
   "pydata-sphinx-theme>=0.16.0",
   "pytest>=8.3.3",
   "sphinx>=7.4.7",
-  "sphinx-autobuild>=2024.10.3",
   "sphinx-autodoc-typehints>=2.3.0",
 ]
 

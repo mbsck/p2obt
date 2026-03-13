@@ -10,11 +10,11 @@ docs/html
 docs/build/
 
 # General files to ignore
-.DS_Store
 *.html
 
 # Specific files to ignore
-uv.lock
+.DS_Store
+.envrc
 
 # Package folders to ignore
 p2obp/tests/data/
