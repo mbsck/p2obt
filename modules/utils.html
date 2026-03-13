@@ -2,48 +2,53 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>p2obp.backend.utils &#8212; p2obp 2.0.0 documentation</title>
+    <title>p2obt.backend.utils &#8212; p2obt 4.3.2 documentation</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=32fb297c"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/utils';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Credit" href="../credit.html" />
-    <link rel="prev" title="p2obp.backend.upload" href="upload.html" />
+    <link rel="prev" title="p2obt.backend.upload" href="upload.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -51,23 +56,16 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -75,7 +73,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -83,18 +80,27 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
-  <div class="navbar-header-items__start">
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -103,60 +109,55 @@
   
   
   
-    <p class="title logo__title">p2obp 2.0.0 documentation</p>
+  
+    <p class="title logo__title">p2obt 4.3.2 documentation</p>
   
 </a></div>
     
   </div>
   
-  
   <div class="col-lg-9 navbar-header-items">
     
     <div class="me-auto navbar-header-items__center">
       
-        <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+        <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../getting_started.html">
-                        Getting Started
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting Started
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../features.html">
-                        Features
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../api.html">
-                        API
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../features.html">
+    Features
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/MBSck/p2obp/releases">
-                        Changelog
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../credit.html">
-                        Credit
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/MBSck/p2obt/releases">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../credit.html">
+    Credit
+  </a>
+</li>
+
   </ul>
 </nav></div>
       
@@ -167,26 +168,22 @@
       
         <div class="navbar-item navbar-persistent--container">
           
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script></div>
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
     </div>
     
@@ -194,29 +191,32 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -225,51 +225,49 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+          
+          
+            <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../getting_started.html">
-                        Getting Started
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting Started
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../features.html">
-                        Features
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../api.html">
-                        API
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../features.html">
+    Features
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/MBSck/p2obp/releases">
-                        Changelog
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../credit.html">
-                        Credit
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/MBSck/p2obt/releases">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../credit.html">
+    Credit
+  </a>
+</li>
+
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -278,36 +276,34 @@ document.write(`
       <div class="sidebar-header-items__end">
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script></div>
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
       </div>
     
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Frontend</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../automate.html">p2obp.automate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../automate.html">p2obt.automate</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backend</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="compose.html">p2obp.backend.compose</a></li>
-<li class="toctree-l1"><a class="reference internal" href="options.html">p2obp.backend.options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parse.html">p2obp.backend.parse</a></li>
-<li class="toctree-l1"><a class="reference internal" href="query.html">p2obp.backend.query</a></li>
-<li class="toctree-l1"><a class="reference internal" href="upload.html">p2obp.backend.upload</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">p2obp.backend.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compose.html">p2obt.backend.compose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options.html">p2obt.backend.options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parse.html">p2obt.backend.parse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query.html">p2obt.backend.query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upload.html">p2obt.backend.upload</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">p2obt.backend.utils</a></li>
 </ul>
 </div>
 </nav></div>
@@ -315,30 +311,33 @@ document.write(`
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
         <div class="header-article-item">
 
-
-
-<nav aria-label="Breadcrumbs">
-  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
       <a href="../index.html" class="nav-link" aria-label="Home">
@@ -348,7 +347,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../api.html" class="nav-link">API</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">p2obp.backend.utils</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">p2obt.backend.utils</span></li>
   </ul>
 </nav>
 </div>
@@ -363,20 +362,20 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <section id="module-p2obp.backend.utils">
-<span id="p2obp-backend-utils"></span><h1>p2obp.backend.utils<a class="headerlink" href="#module-p2obp.backend.utils" title="Permalink to this heading">#</a></h1>
+  <section id="module-p2obt.backend.utils">
+<span id="p2obt-backend-utils"></span><h1>p2obt.backend.utils<a class="headerlink" href="#module-p2obt.backend.utils" title="Link to this heading">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="p2obp.backend.utils.add_space">
-<span class="sig-prename descclassname"><span class="pre">p2obp.backend.utils.</span></span><span class="sig-name descname"><span class="pre">add_space</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/p2obp/backend/utils.html#add_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obp.backend.utils.add_space" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="p2obt.backend.utils.add_space">
+<span class="sig-prename descclassname"><span class="pre">p2obt.backend.utils.</span></span><span class="sig-name descname"><span class="pre">add_space</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/p2obt/backend/utils.html#add_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obt.backend.utils.add_space" title="Link to this definition">#</a></dt>
 <dd><p>Adds a space to the “HD xxxxxx” targets,
 between the HD and the rest.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="p2obp.backend.utils.contains_element">
-<span class="sig-prename descclassname"><span class="pre">p2obp.backend.utils.</span></span><span class="sig-name descname"><span class="pre">contains_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_to_search</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element_to_search</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/p2obp/backend/utils.html#contains_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obp.backend.utils.contains_element" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="p2obt.backend.utils.contains_element">
+<span class="sig-prename descclassname"><span class="pre">p2obt.backend.utils.</span></span><span class="sig-name descname"><span class="pre">contains_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_to_search</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element_to_search</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/p2obt/backend/utils.html#contains_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obt.backend.utils.contains_element" title="Link to this definition">#</a></dt>
 <dd><p>Checks if an element is in the list searched and returns
 ‘True’ or ‘False’</p>
 <dl class="field-list simple">
@@ -396,22 +395,53 @@ between the HD and the rest.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="p2obp.backend.utils.convert_proper_motions">
-<span class="sig-prename descclassname"><span class="pre">p2obp.backend.utils.</span></span><span class="sig-name descname"><span class="pre">convert_proper_motions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">proper_motions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Unit('mas')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rfloat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span></span></span><a class="reference internal" href="../_modules/p2obp/backend/utils.html#convert_proper_motions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obp.backend.utils.convert_proper_motions" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="p2obt.backend.utils.convert_proper_motions">
+<span class="sig-prename descclassname"><span class="pre">p2obt.backend.utils.</span></span><span class="sig-name descname"><span class="pre">convert_proper_motions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">proper_motions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Unit</span><span class="p"><span class="pre">(</span></span><span class="s"><span class="pre">'mas'</span></span><span class="p"><span class="pre">)</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rfloat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span></span></span><a class="reference internal" href="../_modules/p2obt/backend/utils.html#convert_proper_motions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obt.backend.utils.convert_proper_motions" title="Link to this definition">#</a></dt>
 <dd><p>Converts the proper motions from [mas/yr] to [arcsec/yr].</p>
 <p>Input is assumed to be in [mas], if given as float.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="p2obp.backend.utils.prompt_user">
-<span class="sig-prename descclassname"><span class="pre">p2obp.backend.utils.</span></span><span class="sig-name descname"><span class="pre">prompt_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selections</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/p2obp/backend/utils.html#prompt_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obp.backend.utils.prompt_user" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="p2obt.backend.utils.create_night_plan_dict">
+<span class="sig-prename descclassname"><span class="pre">p2obt.backend.utils.</span></span><span class="sig-name descname"><span class="pre">create_night_plan_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibrators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orders</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/p2obt/backend/utils.html#create_night_plan_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obt.backend.utils.create_night_plan_dict" title="Link to this definition">#</a></dt>
+<dd><p>Creates a night plan dictionary for the observations.</p>
+<dl class="simple">
+<dt>targets<span class="classifier">list, optional</span></dt><dd><p>A list of targets. If no night plan is given, this list
+and the calibrators must be given.</p>
+</dd>
+<dt>calibrators<span class="classifier">list, optional</span></dt><dd><p>A list of calibrators that must be given with the targets.</p>
+</dd>
+<dt>orders<span class="classifier">list, optional</span></dt><dd><p>A list of the orders of the calibrators. If not given,
+it will be assumed that the calibrators are before the targets.</p>
+</dd>
+<dt>tags<span class="classifier">list, optional</span></dt><dd><p>A list of the tags of the calibrators. If not given, it will
+be “LN” for all calibrators.</p>
+</dd>
+<dt>resolution<span class="classifier">dict or list of str or str, optional</span></dt><dd><p>A dictionary containing the resolution for each target or a list
+of resolutions for all targets or a single resolution for all targets.
+Will only be used if no night plan is given.</p>
+</dd>
+<dt>configurations<span class="classifier">dict or list of str or str, optional</span></dt><dd><p>A dictionary containing the array configuration for each target or a list
+of array configurations for all targets or a single array configuration for all targets.
+Will only be used if no night plan is given.</p>
+</dd>
+<dt>modes<span class="classifier">dict or list of str or str, optional</span></dt><dd><p>A dictionary containing the operational mode for each target or a list
+of operational modes for all targets or a single operational mode for all targets.
+Will only be used if no night plan is given.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="p2obt.backend.utils.prompt_user">
+<span class="sig-prename descclassname"><span class="pre">p2obt.backend.utils.</span></span><span class="sig-name descname"><span class="pre">prompt_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selections</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/p2obt/backend/utils.html#prompt_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obt.backend.utils.prompt_user" title="Link to this definition">#</a></dt>
 <dd><p>Prompts the user for a numerical input and returns
 the associated value from the selection list.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>message</strong> (<em>str</em>) – </p></li>
-<li><p><strong>selections</strong> (<em>list</em><em> of </em><em>str</em>) – </p></li>
+<li><p><strong>message</strong> (<em>str</em>)</p></li>
+<li><p><strong>selections</strong> (<em>list</em><em> of </em><em>str</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -424,17 +454,23 @@ the associated value from the selection list.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="p2obp.backend.utils.remove_parenthesis">
-<span class="sig-prename descclassname"><span class="pre">p2obp.backend.utils.</span></span><span class="sig-name descname"><span class="pre">remove_parenthesis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/p2obp/backend/utils.html#remove_parenthesis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obp.backend.utils.remove_parenthesis" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="p2obt.backend.utils.remove_parenthesis">
+<span class="sig-prename descclassname"><span class="pre">p2obt.backend.utils.</span></span><span class="sig-name descname"><span class="pre">remove_parenthesis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/p2obt/backend/utils.html#remove_parenthesis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obt.backend.utils.remove_parenthesis" title="Link to this definition">#</a></dt>
 <dd><p>Removes parenthesis from a string.</p>
 <p>This if for the ob’s name so it is elegible for upload
 (either manually after (.obx)-file creation or automatically.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="p2obp.backend.utils.remove_spaces">
-<span class="sig-prename descclassname"><span class="pre">p2obp.backend.utils.</span></span><span class="sig-name descname"><span class="pre">remove_spaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/p2obp/backend/utils.html#remove_spaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obp.backend.utils.remove_spaces" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="p2obt.backend.utils.remove_spaces">
+<span class="sig-prename descclassname"><span class="pre">p2obt.backend.utils.</span></span><span class="sig-name descname"><span class="pre">remove_spaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/p2obt/backend/utils.html#remove_spaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obt.backend.utils.remove_spaces" title="Link to this definition">#</a></dt>
 <dd><p>Removes multiple spaces in names (e.g., ‘HD  142666’).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="p2obt.backend.utils.replace_elements">
+<span class="sig-prename descclassname"><span class="pre">p2obt.backend.utils.</span></span><span class="sig-name descname"><span class="pre">replace_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nested_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/p2obt/backend/utils.html#replace_elements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#p2obt.backend.utils.replace_elements" title="Link to this definition">#</a></dt>
+<dd><p>Replaces all elements in a nested list with a fill value.</p>
 </dd></dl>
 
 </section>
@@ -444,11 +480,10 @@ the associated value from the selection list.</p>
               
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="upload.html"
@@ -456,7 +491,7 @@ the associated value from the selection list.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">p2obp.backend.upload</p>
+        <p class="prev-next-title">p2obt.backend.upload</p>
       </div>
     </a>
     <a class="right-next"
@@ -468,40 +503,44 @@ the associated value from the selection list.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obp.backend.utils.add_space"><code class="docutils literal notranslate"><span class="pre">add_space()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obp.backend.utils.contains_element"><code class="docutils literal notranslate"><span class="pre">contains_element()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obp.backend.utils.convert_proper_motions"><code class="docutils literal notranslate"><span class="pre">convert_proper_motions()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obp.backend.utils.prompt_user"><code class="docutils literal notranslate"><span class="pre">prompt_user()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obp.backend.utils.remove_parenthesis"><code class="docutils literal notranslate"><span class="pre">remove_parenthesis()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obp.backend.utils.remove_spaces"><code class="docutils literal notranslate"><span class="pre">remove_spaces()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obt.backend.utils.add_space"><code class="docutils literal notranslate"><span class="pre">add_space()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obt.backend.utils.contains_element"><code class="docutils literal notranslate"><span class="pre">contains_element()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obt.backend.utils.convert_proper_motions"><code class="docutils literal notranslate"><span class="pre">convert_proper_motions()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obt.backend.utils.create_night_plan_dict"><code class="docutils literal notranslate"><span class="pre">create_night_plan_dict()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obt.backend.utils.prompt_user"><code class="docutils literal notranslate"><span class="pre">prompt_user()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obt.backend.utils.remove_parenthesis"><code class="docutils literal notranslate"><span class="pre">remove_parenthesis()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obt.backend.utils.remove_spaces"><code class="docutils literal notranslate"><span class="pre">remove_spaces()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2obt.backend.utils.replace_elements"><code class="docutils literal notranslate"><span class="pre">replace_elements()</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
-  <div class="tocsection sourcelink">
-    <a href="../_sources/modules/utils.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/utils.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
 
 </div></div>
               
@@ -516,8 +555,8 @@ the associated value from the selection list.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -525,6 +564,7 @@ the associated value from the selection list.</p>
     <div class="footer-items__start">
       
         <div class="footer-item">
+
   <p class="copyright">
     
       © Copyright 2023, Marten Scheuck.
@@ -534,8 +574,9 @@ the associated value from the selection list.</p>
 </div>
       
         <div class="footer-item">
+
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>
@@ -543,10 +584,13 @@ the associated value from the selection list.</p>
     </div>
   
   
+  
     <div class="footer-items__end">
       
-        <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>
