@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![Lifecycle: production](https://img.shields.io/badge/lifecycle-production-orange.svg)
 ![PyPI - Version](https://img.shields.io/pypi/v/p2obt?pypiBaseUrl=https%3A%2F%2Fpypi.org)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 
 The Phase 2 OB tool (p2obt) has been made to streamline/automate
 the process of MATISSE observation (ob) preparation on ESO's p2 environment.
