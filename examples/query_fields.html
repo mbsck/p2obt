@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Query Fields &#8212; p2obt 4.3.2 documentation</title>
+    <title>Query Fields &#8212; p2obt 4.4.0 documentation</title>
   
   
   
@@ -27,21 +27,22 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=32fb297c"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/documentation_options.js?v=2f20d6c1"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/query_fields';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Utils" href="utils.html" />
@@ -49,20 +50,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -88,7 +95,7 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -110,7 +117,7 @@
   
   
   
-    <p class="title logo__title">p2obt 4.3.2 documentation</p>
+    <p class="title logo__title">p2obt 4.4.0 documentation</p>
   
 </a></div>
     
@@ -179,11 +186,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -277,18 +291,33 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
         <div class="sidebar-primary-item">
+
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
@@ -378,71 +407,71 @@
 specified by the user in the <a class="reference internal" href="../modules/options.html#p2obt-backend-options"><span class="std std-ref">options</span></a>.</p>
 <section id="simbad">
 <h2>Simbad<a class="headerlink" href="#simbad" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;sp_type&#39;</span><span class="p">,</span> <span class="s1">&#39;ra&#39;</span><span class="p">,</span> <span class="s1">&#39;dec&#39;</span><span class="p">,</span> <span class="s1">&#39;pmra&#39;</span><span class="p">,</span> <span class="s1">&#39;pmdec&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;K&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">'sp_type'</span><span class="p">,</span> <span class="s1">'ra'</span><span class="p">,</span> <span class="s1">'dec'</span><span class="p">,</span> <span class="s1">'pmra'</span><span class="p">,</span> <span class="s1">'pmdec'</span><span class="p">,</span> <span class="s1">'V'</span><span class="p">,</span> <span class="s1">'H'</span><span class="p">,</span> <span class="s1">'K'</span>
 </pre></div>
 </div>
 </section>
 <section id="gaia">
 <h2>GAIA<a class="headerlink" href="#gaia" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;RA_ICRS&#39;</span><span class="p">,</span> <span class="s1">&#39;e_RA_ICRS&#39;</span><span class="p">,</span> <span class="s1">&#39;DE_ICRS&#39;</span><span class="p">,</span> <span class="s1">&#39;e_DE_ICRS&#39;</span><span class="p">,</span>
-<span class="s1">&#39;Source&#39;</span><span class="p">,</span> <span class="s1">&#39;Plx&#39;</span><span class="p">,</span> <span class="s1">&#39;e_Plx&#39;</span><span class="p">,</span> <span class="s1">&#39;pmRA&#39;</span><span class="p">,</span> <span class="s1">&#39;e_pmRA&#39;</span><span class="p">,</span>
-<span class="s1">&#39;pmDE&#39;</span><span class="p">,</span> <span class="s1">&#39;e_pmDE&#39;</span><span class="p">,</span> <span class="s1">&#39;Dup&#39;</span><span class="p">,</span> <span class="s1">&#39;FG&#39;</span><span class="p">,</span> <span class="s1">&#39;e_FG&#39;</span><span class="p">,</span> <span class="s1">&#39;Gmag&#39;</span><span class="p">,</span>
-<span class="s1">&#39;e_Gmag&#39;</span><span class="p">,</span> <span class="s1">&#39;FBP&#39;</span><span class="p">,</span> <span class="s1">&#39;e_FBP&#39;</span><span class="p">,</span> <span class="s1">&#39;BPmag&#39;</span><span class="p">,</span> <span class="s1">&#39;e_BPmag&#39;</span><span class="p">,</span>
-<span class="s1">&#39;FRP&#39;</span><span class="p">,</span> <span class="s1">&#39;e_FRP&#39;</span><span class="p">,</span> <span class="s1">&#39;RPmag&#39;</span><span class="p">,</span> <span class="s1">&#39;e_RPmag&#39;</span><span class="p">,</span> <span class="s1">&#39;BP-RP&#39;</span><span class="p">,</span>
-<span class="s1">&#39;RV&#39;</span><span class="p">,</span> <span class="s1">&#39;e_RV&#39;</span><span class="p">,</span> <span class="s1">&#39;Teff&#39;</span><span class="p">,</span> <span class="s1">&#39;AG&#39;</span><span class="p">,</span> <span class="s1">&#39;E_BP-RP_&#39;</span><span class="p">,</span> <span class="s1">&#39;Rad&#39;</span><span class="p">,</span> <span class="s1">&#39;Lum&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">'RA_ICRS'</span><span class="p">,</span> <span class="s1">'e_RA_ICRS'</span><span class="p">,</span> <span class="s1">'DE_ICRS'</span><span class="p">,</span> <span class="s1">'e_DE_ICRS'</span><span class="p">,</span>
+<span class="s1">'Source'</span><span class="p">,</span> <span class="s1">'Plx'</span><span class="p">,</span> <span class="s1">'e_Plx'</span><span class="p">,</span> <span class="s1">'pmRA'</span><span class="p">,</span> <span class="s1">'e_pmRA'</span><span class="p">,</span>
+<span class="s1">'pmDE'</span><span class="p">,</span> <span class="s1">'e_pmDE'</span><span class="p">,</span> <span class="s1">'Dup'</span><span class="p">,</span> <span class="s1">'FG'</span><span class="p">,</span> <span class="s1">'e_FG'</span><span class="p">,</span> <span class="s1">'Gmag'</span><span class="p">,</span>
+<span class="s1">'e_Gmag'</span><span class="p">,</span> <span class="s1">'FBP'</span><span class="p">,</span> <span class="s1">'e_FBP'</span><span class="p">,</span> <span class="s1">'BPmag'</span><span class="p">,</span> <span class="s1">'e_BPmag'</span><span class="p">,</span>
+<span class="s1">'FRP'</span><span class="p">,</span> <span class="s1">'e_FRP'</span><span class="p">,</span> <span class="s1">'RPmag'</span><span class="p">,</span> <span class="s1">'e_RPmag'</span><span class="p">,</span> <span class="s1">'BP-RP'</span><span class="p">,</span>
+<span class="s1">'RV'</span><span class="p">,</span> <span class="s1">'e_RV'</span><span class="p">,</span> <span class="s1">'Teff'</span><span class="p">,</span> <span class="s1">'AG'</span><span class="p">,</span> <span class="s1">'E_BP-RP_'</span><span class="p">,</span> <span class="s1">'Rad'</span><span class="p">,</span> <span class="s1">'Lum'</span>
 </pre></div>
 </div>
 </section>
 <section id="tycho">
 <h2>TYCHO<a class="headerlink" href="#tycho" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;e_BTmag&#39;</span><span class="p">,</span> <span class="s1">&#39;e_VTmag&#39;</span><span class="p">,</span> <span class="s1">&#39;IDTyc2&#39;</span><span class="p">,</span> <span class="s1">&#39;RAT&#39;</span><span class="p">,</span>
-<span class="s1">&#39;DET&#39;</span><span class="p">,</span> <span class="s1">&#39;pmRA&#39;</span><span class="p">,</span> <span class="s1">&#39;pmDE&#39;</span><span class="p">,</span> <span class="s1">&#39;EpRA1990&#39;</span><span class="p">,</span>
-<span class="s1">&#39;EpDE1990&#39;</span><span class="p">,</span> <span class="s1">&#39;CCDM&#39;</span><span class="p">,</span> <span class="s1">&#39;BTmag&#39;</span><span class="p">,</span> <span class="s1">&#39;VTmag&#39;</span><span class="p">,</span>
-<span class="s1">&#39;TDSC&#39;</span><span class="p">,</span> <span class="s1">&#39;WDS&#39;</span><span class="p">,</span> <span class="s1">&#39;PA&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep&#39;</span><span class="p">,</span> <span class="s1">&#39;_RA.icrs&#39;</span><span class="p">,</span> <span class="s1">&#39;_DE.icrs&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">'e_BTmag'</span><span class="p">,</span> <span class="s1">'e_VTmag'</span><span class="p">,</span> <span class="s1">'IDTyc2'</span><span class="p">,</span> <span class="s1">'RAT'</span><span class="p">,</span>
+<span class="s1">'DET'</span><span class="p">,</span> <span class="s1">'pmRA'</span><span class="p">,</span> <span class="s1">'pmDE'</span><span class="p">,</span> <span class="s1">'EpRA1990'</span><span class="p">,</span>
+<span class="s1">'EpDE1990'</span><span class="p">,</span> <span class="s1">'CCDM'</span><span class="p">,</span> <span class="s1">'BTmag'</span><span class="p">,</span> <span class="s1">'VTmag'</span><span class="p">,</span>
+<span class="s1">'TDSC'</span><span class="p">,</span> <span class="s1">'WDS'</span><span class="p">,</span> <span class="s1">'PA'</span><span class="p">,</span> <span class="s1">'Sep'</span><span class="p">,</span> <span class="s1">'_RA.icrs'</span><span class="p">,</span> <span class="s1">'_DE.icrs'</span>
 </pre></div>
 </div>
 </section>
 <section id="nomad">
 <h2>NOMAD<a class="headerlink" href="#nomad" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;NOMAD1&#39;</span><span class="p">,</span> <span class="s1">&#39;YM&#39;</span><span class="p">,</span> <span class="s1">&#39;RAJ2000&#39;</span><span class="p">,</span> <span class="s1">&#39;DEJ2000&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span>
-<span class="s1">&#39;pmRA&#39;</span><span class="p">,</span> <span class="s1">&#39;e_pmRA&#39;</span><span class="p">,</span> <span class="s1">&#39;pmDE&#39;</span><span class="p">,</span> <span class="s1">&#39;e_pmDE&#39;</span><span class="p">,</span> <span class="s1">&#39;Bmag&#39;</span><span class="p">,</span>
-<span class="s1">&#39;r_Bmag&#39;</span><span class="p">,</span> <span class="s1">&#39;Vmag&#39;</span><span class="p">,</span> <span class="s1">&#39;r_Vmag&#39;</span><span class="p">,</span> <span class="s1">&#39;Rmag&#39;</span><span class="p">,</span> <span class="s1">&#39;r_Rmag&#39;</span><span class="p">,</span>
-<span class="s1">&#39;Jmag&#39;</span><span class="p">,</span> <span class="s1">&#39;Hmag&#39;</span><span class="p">,</span> <span class="s1">&#39;Kmag&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">'NOMAD1'</span><span class="p">,</span> <span class="s1">'YM'</span><span class="p">,</span> <span class="s1">'RAJ2000'</span><span class="p">,</span> <span class="s1">'DEJ2000'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span>
+<span class="s1">'pmRA'</span><span class="p">,</span> <span class="s1">'e_pmRA'</span><span class="p">,</span> <span class="s1">'pmDE'</span><span class="p">,</span> <span class="s1">'e_pmDE'</span><span class="p">,</span> <span class="s1">'Bmag'</span><span class="p">,</span>
+<span class="s1">'r_Bmag'</span><span class="p">,</span> <span class="s1">'Vmag'</span><span class="p">,</span> <span class="s1">'r_Vmag'</span><span class="p">,</span> <span class="s1">'Rmag'</span><span class="p">,</span> <span class="s1">'r_Rmag'</span><span class="p">,</span>
+<span class="s1">'Jmag'</span><span class="p">,</span> <span class="s1">'Hmag'</span><span class="p">,</span> <span class="s1">'Kmag'</span><span class="p">,</span> <span class="s1">'R'</span>
 </pre></div>
 </div>
 </section>
 <section id="mass">
 <h2>2MASS<a class="headerlink" href="#mass" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;RAJ2000&#39;</span><span class="p">,</span> <span class="s1">&#39;DEJ2000&#39;</span><span class="p">,</span> <span class="s1">&#39;_2MASS&#39;</span><span class="p">,</span> <span class="s1">&#39;Jmag&#39;</span><span class="p">,</span>
-<span class="s1">&#39;e_Jmag&#39;</span><span class="p">,</span> <span class="s1">&#39;Hmag&#39;</span><span class="p">,</span> <span class="s1">&#39;e_Hmag&#39;</span><span class="p">,</span> <span class="s1">&#39;Kmag&#39;</span><span class="p">,</span> <span class="s1">&#39;e_Kmag&#39;</span><span class="p">,</span>
-<span class="s1">&#39;Qflg&#39;</span><span class="p">,</span> <span class="s1">&#39;Rflg&#39;</span><span class="p">,</span> <span class="s1">&#39;Bflg&#39;</span><span class="p">,</span> <span class="s1">&#39;Cflg&#39;</span><span class="p">,</span> <span class="s1">&#39;Xflg&#39;</span><span class="p">,</span> <span class="s1">&#39;Aflg&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">'RAJ2000'</span><span class="p">,</span> <span class="s1">'DEJ2000'</span><span class="p">,</span> <span class="s1">'_2MASS'</span><span class="p">,</span> <span class="s1">'Jmag'</span><span class="p">,</span>
+<span class="s1">'e_Jmag'</span><span class="p">,</span> <span class="s1">'Hmag'</span><span class="p">,</span> <span class="s1">'e_Hmag'</span><span class="p">,</span> <span class="s1">'Kmag'</span><span class="p">,</span> <span class="s1">'e_Kmag'</span><span class="p">,</span>
+<span class="s1">'Qflg'</span><span class="p">,</span> <span class="s1">'Rflg'</span><span class="p">,</span> <span class="s1">'Bflg'</span><span class="p">,</span> <span class="s1">'Cflg'</span><span class="p">,</span> <span class="s1">'Xflg'</span><span class="p">,</span> <span class="s1">'Aflg'</span>
 </pre></div>
 </div>
 </section>
 <section id="wise">
 <h2>WISE<a class="headerlink" href="#wise" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;RAJ2000&#39;</span><span class="p">,</span> <span class="s1">&#39;DEJ2000&#39;</span><span class="p">,</span> <span class="s1">&#39;eeMaj&#39;</span><span class="p">,</span> <span class="s1">&#39;eeMin&#39;</span><span class="p">,</span> <span class="s1">&#39;Im&#39;</span><span class="p">,</span>
-<span class="s1">&#39;W1mag&#39;</span><span class="p">,</span> <span class="s1">&#39;e_W1mag&#39;</span><span class="p">,</span> <span class="s1">&#39;W2mag&#39;</span><span class="p">,</span> <span class="s1">&#39;e_W2mag&#39;</span><span class="p">,</span>
-<span class="s1">&#39;W3mag&#39;</span><span class="p">,</span> <span class="s1">&#39;e_W3mag&#39;</span><span class="p">,</span> <span class="s1">&#39;W4mag&#39;</span><span class="p">,</span> <span class="s1">&#39;e_W4mag&#39;</span><span class="p">,</span>
-<span class="s1">&#39;Jmag&#39;</span><span class="p">,</span> <span class="s1">&#39;Hmag&#39;</span><span class="p">,</span> <span class="s1">&#39;Kmag&#39;</span><span class="p">,</span> <span class="s1">&#39;ccf&#39;</span><span class="p">,</span> <span class="s1">&#39;ex&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="s1">&#39;d2M&#39;</span><span class="p">,</span> <span class="s1">&#39;_2M&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">'RAJ2000'</span><span class="p">,</span> <span class="s1">'DEJ2000'</span><span class="p">,</span> <span class="s1">'eeMaj'</span><span class="p">,</span> <span class="s1">'eeMin'</span><span class="p">,</span> <span class="s1">'Im'</span><span class="p">,</span>
+<span class="s1">'W1mag'</span><span class="p">,</span> <span class="s1">'e_W1mag'</span><span class="p">,</span> <span class="s1">'W2mag'</span><span class="p">,</span> <span class="s1">'e_W2mag'</span><span class="p">,</span>
+<span class="s1">'W3mag'</span><span class="p">,</span> <span class="s1">'e_W3mag'</span><span class="p">,</span> <span class="s1">'W4mag'</span><span class="p">,</span> <span class="s1">'e_W4mag'</span><span class="p">,</span>
+<span class="s1">'Jmag'</span><span class="p">,</span> <span class="s1">'Hmag'</span><span class="p">,</span> <span class="s1">'Kmag'</span><span class="p">,</span> <span class="s1">'ccf'</span><span class="p">,</span> <span class="s1">'ex'</span><span class="p">,</span> <span class="s1">'var'</span><span class="p">,</span> <span class="s1">'d2M'</span><span class="p">,</span> <span class="s1">'_2M'</span>
 </pre></div>
 </div>
 </section>
 <section id="mdfc">
 <h2>MDFC<a class="headerlink" href="#mdfc" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;_r&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;SpType&#39;</span><span class="p">,</span> <span class="s1">&#39;RAJ2000&#39;</span><span class="p">,</span> <span class="s1">&#39;DEJ2000&#39;</span><span class="p">,</span>
-<span class="s1">&#39;Dist&#39;</span><span class="p">,</span> <span class="s1">&#39;Teff-MIDI&#39;</span><span class="p">,</span> <span class="s1">&#39;Teff-GAIA&#39;</span><span class="p">,</span> <span class="s1">&#39;Comp&#39;</span><span class="p">,</span>
-<span class="s1">&#39;Mean-sep&#39;</span><span class="p">,</span> <span class="s1">&#39;mag1&#39;</span><span class="p">,</span> <span class="s1">&#39;mag2&#39;</span><span class="p">,</span> <span class="s1">&#39;Diam-MIDI&#39;</span><span class="p">,</span>
-<span class="s1">&#39;e_Diam-MIDI&#39;</span><span class="p">,</span> <span class="s1">&#39;Diam-Cohen&#39;</span><span class="p">,</span> <span class="s1">&#39;e_Diam-Cohen&#39;</span><span class="p">,</span>
-<span class="s1">&#39;Diam-GAIA&#39;</span><span class="p">,</span> <span class="s1">&#39;LDD-meas&#39;</span><span class="p">,</span> <span class="s1">&#39;e_LDD-meas&#39;</span><span class="p">,</span> <span class="s1">&#39;UDD-meas&#39;</span><span class="p">,</span>
-<span class="s1">&#39;Band-meas&#39;</span><span class="p">,</span> <span class="s1">&#39;LDD-est&#39;</span><span class="p">,</span> <span class="s1">&#39;e_LDD-est&#39;</span><span class="p">,</span> <span class="s1">&#39;UDDL-est&#39;</span><span class="p">,</span>
-<span class="s1">&#39;UDDM-est&#39;</span><span class="p">,</span> <span class="s1">&#39;UDDN-est&#39;</span><span class="p">,</span> <span class="s1">&#39;Jmag&#39;</span><span class="p">,</span> <span class="s1">&#39;Hmag&#39;</span><span class="p">,</span> <span class="s1">&#39;Kmag&#39;</span><span class="p">,</span>
-<span class="s1">&#39;W4mag&#39;</span><span class="p">,</span> <span class="s1">&#39;CalFlag&#39;</span><span class="p">,</span> <span class="s1">&#39;IRflag&#39;</span><span class="p">,</span> <span class="s1">&#39;nb-Lflux&#39;</span><span class="p">,</span>
-<span class="s1">&#39;med-Lflux&#39;</span><span class="p">,</span> <span class="s1">&#39;disp-Lflux&#39;</span><span class="p">,</span> <span class="s1">&#39;nb-Mflux&#39;</span><span class="p">,</span> <span class="s1">&#39;med-Mflux&#39;</span><span class="p">,</span>
-<span class="s1">&#39;disp-Mflux&#39;</span><span class="p">,</span> <span class="s1">&#39;nb-Nflux&#39;</span><span class="p">,</span> <span class="s1">&#39;med-Nflux&#39;</span><span class="p">,</span> <span class="s1">&#39;disp-Nflux&#39;</span><span class="p">,</span>
-<span class="s1">&#39;Lcorflux30&#39;</span><span class="p">,</span> <span class="s1">&#39;Lcorflux100&#39;</span><span class="p">,</span> <span class="s1">&#39;Lcorflux130&#39;</span><span class="p">,</span> <span class="s1">&#39;Mcorflux30&#39;</span><span class="p">,</span>
-<span class="s1">&#39;Mcorflux100&#39;</span><span class="p">,</span> <span class="s1">&#39;Mcorflux130&#39;</span><span class="p">,</span> <span class="s1">&#39;Ncorflux30&#39;</span><span class="p">,</span>
-<span class="s1">&#39;Ncorflux100&#39;</span><span class="p">,</span> <span class="s1">&#39;Ncorflux130&#39;</span><span class="p">,</span> <span class="s1">&#39;Simbad&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">'_r'</span><span class="p">,</span> <span class="s1">'Name'</span><span class="p">,</span> <span class="s1">'SpType'</span><span class="p">,</span> <span class="s1">'RAJ2000'</span><span class="p">,</span> <span class="s1">'DEJ2000'</span><span class="p">,</span>
+<span class="s1">'Dist'</span><span class="p">,</span> <span class="s1">'Teff-MIDI'</span><span class="p">,</span> <span class="s1">'Teff-GAIA'</span><span class="p">,</span> <span class="s1">'Comp'</span><span class="p">,</span>
+<span class="s1">'Mean-sep'</span><span class="p">,</span> <span class="s1">'mag1'</span><span class="p">,</span> <span class="s1">'mag2'</span><span class="p">,</span> <span class="s1">'Diam-MIDI'</span><span class="p">,</span>
+<span class="s1">'e_Diam-MIDI'</span><span class="p">,</span> <span class="s1">'Diam-Cohen'</span><span class="p">,</span> <span class="s1">'e_Diam-Cohen'</span><span class="p">,</span>
+<span class="s1">'Diam-GAIA'</span><span class="p">,</span> <span class="s1">'LDD-meas'</span><span class="p">,</span> <span class="s1">'e_LDD-meas'</span><span class="p">,</span> <span class="s1">'UDD-meas'</span><span class="p">,</span>
+<span class="s1">'Band-meas'</span><span class="p">,</span> <span class="s1">'LDD-est'</span><span class="p">,</span> <span class="s1">'e_LDD-est'</span><span class="p">,</span> <span class="s1">'UDDL-est'</span><span class="p">,</span>
+<span class="s1">'UDDM-est'</span><span class="p">,</span> <span class="s1">'UDDN-est'</span><span class="p">,</span> <span class="s1">'Jmag'</span><span class="p">,</span> <span class="s1">'Hmag'</span><span class="p">,</span> <span class="s1">'Kmag'</span><span class="p">,</span>
+<span class="s1">'W4mag'</span><span class="p">,</span> <span class="s1">'CalFlag'</span><span class="p">,</span> <span class="s1">'IRflag'</span><span class="p">,</span> <span class="s1">'nb-Lflux'</span><span class="p">,</span>
+<span class="s1">'med-Lflux'</span><span class="p">,</span> <span class="s1">'disp-Lflux'</span><span class="p">,</span> <span class="s1">'nb-Mflux'</span><span class="p">,</span> <span class="s1">'med-Mflux'</span><span class="p">,</span>
+<span class="s1">'disp-Mflux'</span><span class="p">,</span> <span class="s1">'nb-Nflux'</span><span class="p">,</span> <span class="s1">'med-Nflux'</span><span class="p">,</span> <span class="s1">'disp-Nflux'</span><span class="p">,</span>
+<span class="s1">'Lcorflux30'</span><span class="p">,</span> <span class="s1">'Lcorflux100'</span><span class="p">,</span> <span class="s1">'Lcorflux130'</span><span class="p">,</span> <span class="s1">'Mcorflux30'</span><span class="p">,</span>
+<span class="s1">'Mcorflux100'</span><span class="p">,</span> <span class="s1">'Mcorflux130'</span><span class="p">,</span> <span class="s1">'Ncorflux30'</span><span class="p">,</span>
+<span class="s1">'Ncorflux100'</span><span class="p">,</span> <span class="s1">'Ncorflux130'</span><span class="p">,</span> <span class="s1">'Simbad'</span>
 </pre></div>
 </div>
 </section>
@@ -493,8 +522,8 @@ specified by the user in the <a class="reference internal" href="../modules/opti
     class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simbad">Simbad</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaia">GAIA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tycho">TYCHO</a></li>
@@ -506,13 +535,13 @@ specified by the user in the <a class="reference internal" href="../modules/opti
   </nav></div>
 
   <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/examples/query_fields.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/examples/query_fields.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
 
 </div></div>
               
@@ -527,8 +556,8 @@ specified by the user in the <a class="reference internal" href="../modules/opti
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -548,7 +577,7 @@ specified by the user in the <a class="reference internal" href="../modules/opti
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     <br/>
   </p>
 </div>
@@ -562,7 +591,7 @@ specified by the user in the <a class="reference internal" href="../modules/opti
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
 </p></div>
       
     </div>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>p2obt.backend.options &#8212; p2obt 4.3.2 documentation</title>
+    <title>p2obt.backend.options &#8212; p2obt 4.4.0 documentation</title>
   
   
   
@@ -27,21 +27,22 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=32fb297c"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/documentation_options.js?v=2f20d6c1"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/options';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="p2obt.backend.parse" href="parse.html" />
@@ -49,20 +50,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -88,7 +95,7 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -110,7 +117,7 @@
   
   
   
-    <p class="title logo__title">p2obt 4.3.2 documentation</p>
+    <p class="title logo__title">p2obt 4.4.0 documentation</p>
   
 </a></div>
     
@@ -179,11 +186,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -277,18 +291,33 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
         <div class="sidebar-primary-item">
+
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
@@ -372,9 +401,9 @@ that can be changed and their default values as seen in the script <code class="
 <section id="logger-settings">
 <h2>Logger Settings<a class="headerlink" href="#logger-settings" title="Link to this heading">#</a></h2>
 <p>The logging settings that are used for logging errors.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;logs&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"logs"</span>
 <span class="n">OPTIONS</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(name)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(name)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">"</span>
 </pre></div>
 </div>
 </section>
@@ -384,7 +413,7 @@ that can be changed and their default values as seen in the script <code class="
 <section id="resolution">
 <h3>Resolution<a class="headerlink" href="#resolution" title="Link to this heading">#</a></h3>
 <p>This options sets the standard resolution for all created obs.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">resolution</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="s2">&quot;low&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">resolution</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="s2">"low"</span>
 </pre></div>
 </div>
 <p>With this option one can override the resolutions queried from the local catalogs
@@ -467,81 +496,81 @@ or any resolution set in an input dictionary for the <a class="reference interna
 <p>The settings used for the <a class="reference internal" href="query.html#p2obt.backend.query.query" title="p2obt.backend.query.query"><code class="xref py py-func docutils literal notranslate"><span class="pre">query</span></code></a> function.</p>
 <section id="used-catalogs">
 <h3>Used Catalogs<a class="headerlink" href="#used-catalogs" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gaia&quot;</span><span class="p">,</span> <span class="s2">&quot;tycho&quot;</span><span class="p">,</span> <span class="s2">&quot;nomad&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;two_mass&quot;</span><span class="p">,</span> <span class="s2">&quot;wise&quot;</span><span class="p">,</span> <span class="s2">&quot;mdfc&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;simbad&quot;</span><span class="p">,</span> <span class="s2">&quot;local&quot;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"gaia"</span><span class="p">,</span> <span class="s2">"tycho"</span><span class="p">,</span> <span class="s2">"nomad"</span><span class="p">,</span>
+                    <span class="s2">"two_mass"</span><span class="p">,</span> <span class="s2">"wise"</span><span class="p">,</span> <span class="s2">"mdfc"</span><span class="p">,</span>
+                    <span class="s2">"simbad"</span><span class="p">,</span> <span class="s2">"local"</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>The local catalogs/databases queried.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">local</span><span class="o">.</span><span class="n">standard</span> <span class="o">=</span> <span class="s2">&quot;Targets&quot;</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">local</span><span class="o">.</span><span class="n">ciao</span> <span class="o">=</span> <span class="s2">&quot;CIAO Offaxis Targets&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">local</span><span class="o">.</span><span class="n">standard</span> <span class="o">=</span> <span class="s2">"Targets"</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">local</span><span class="o">.</span><span class="n">ciao</span> <span class="o">=</span> <span class="s2">"CIAO Offaxis Targets"</span>
 </pre></div>
 </div>
 <p>Setting the following option to either <code class="code highlight python docutils literal highlight-python"><span class="n">ciao</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="n">standard</span></code> will query one of
 the above catalogs. If the option is set to <code class="code highlight python docutils literal highlight-python"><span class="n">none</span></code>, no local catalog will be queried.
 But this can be easier done with the <a class="reference internal" href="query.html#p2obt.backend.query.query" title="p2obt.backend.query.query"><code class="xref py py-func docutils literal notranslate"><span class="pre">query</span></code></a> function by excluding
 the <code class="code highlight python docutils literal highlight-python"><span class="n">local</span></code> catalog.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">local</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="s2">&quot;standard&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">local</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="s2">"standard"</span>
 </pre></div>
 </div>
 <p>The online catalogs queried.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">gaia</span><span class="o">.</span><span class="n">catalog</span> <span class="o">=</span> <span class="s2">&quot;I/345/gaia2&quot;</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">tycho</span><span class="o">.</span><span class="n">catalog</span> <span class="o">=</span> <span class="s2">&quot;I/350/tyc2tdsc&quot;</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">nomad</span><span class="o">.</span><span class="n">catalog</span> <span class="o">=</span> <span class="s2">&quot;I/297/out&quot;</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">two_mass</span><span class="o">.</span><span class="n">catalog</span> <span class="o">=</span> <span class="s2">&quot;II/246/out&quot;</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">wise</span><span class="o">.</span><span class="n">catalog</span> <span class="o">=</span> <span class="s2">&quot;II/311/wise&quot;</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">mdfc</span><span class="o">.</span><span class="n">catalog</span> <span class="o">=</span> <span class="s2">&quot;II/361/mdfc-v10&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">gaia</span><span class="o">.</span><span class="n">catalog</span> <span class="o">=</span> <span class="s2">"I/345/gaia2"</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">tycho</span><span class="o">.</span><span class="n">catalog</span> <span class="o">=</span> <span class="s2">"I/350/tyc2tdsc"</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">nomad</span><span class="o">.</span><span class="n">catalog</span> <span class="o">=</span> <span class="s2">"I/297/out"</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">two_mass</span><span class="o">.</span><span class="n">catalog</span> <span class="o">=</span> <span class="s2">"II/246/out"</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">wise</span><span class="o">.</span><span class="n">catalog</span> <span class="o">=</span> <span class="s2">"II/311/wise"</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">mdfc</span><span class="o">.</span><span class="n">catalog</span> <span class="o">=</span> <span class="s2">"II/361/mdfc-v10"</span>
 </pre></div>
 </div>
 </section>
 <section id="catalog-fields">
 <h3>Catalog fields<a class="headerlink" href="#catalog-fields" title="Link to this heading">#</a></h3>
 <p>Set the fields accessed in each catalog.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">gaia</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">]</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">tycho</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;e_BTmag&quot;</span><span class="p">,</span> <span class="s2">&quot;e_VTmag&quot;</span><span class="p">]</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">nomad</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">]</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">two_mass</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">]</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">wise</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">]</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">mdfc</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;**&quot;</span><span class="p">]</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">simbad</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mk&quot;</span><span class="p">,</span> <span class="s2">&quot;sp&quot;</span><span class="p">,</span> <span class="s2">&quot;sptype&quot;</span><span class="p">,</span> <span class="s2">&quot;fe_h&quot;</span><span class="p">,</span>
-                                  <span class="s2">&quot;pm&quot;</span><span class="p">,</span> <span class="s2">&quot;plx&quot;</span><span class="p">,</span> <span class="s2">&quot;rv_value&quot;</span><span class="p">,</span>
-                                  <span class="s2">&quot;flux(U)&quot;</span><span class="p">,</span> <span class="s2">&quot;flux_error(U)&quot;</span><span class="p">,</span>
-                                  <span class="s2">&quot;flux(B)&quot;</span><span class="p">,</span> <span class="s2">&quot;flux_error(B)&quot;</span><span class="p">,</span>
-                                  <span class="s2">&quot;flux(V)&quot;</span><span class="p">,</span> <span class="s2">&quot;flux_error(V)&quot;</span><span class="p">,</span>
-                                  <span class="s2">&quot;flux(R)&quot;</span><span class="p">,</span> <span class="s2">&quot;flux_error(R)&quot;</span><span class="p">,</span>
-                                  <span class="s2">&quot;flux(I)&quot;</span><span class="p">,</span> <span class="s2">&quot;flux_error(I)&quot;</span><span class="p">,</span>
-                                  <span class="s2">&quot;flux(J)&quot;</span><span class="p">,</span> <span class="s2">&quot;flux_error(J)&quot;</span><span class="p">,</span>
-                                  <span class="s2">&quot;flux(H)&quot;</span><span class="p">,</span> <span class="s2">&quot;flux_error(H)&quot;</span><span class="p">,</span>
-                                  <span class="s2">&quot;flux(K)&quot;</span><span class="p">,</span> <span class="s2">&quot;flux_error(K)&quot;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">gaia</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"*"</span><span class="p">]</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">tycho</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"*"</span><span class="p">,</span> <span class="s2">"e_BTmag"</span><span class="p">,</span> <span class="s2">"e_VTmag"</span><span class="p">]</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">nomad</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"*"</span><span class="p">]</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">two_mass</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"*"</span><span class="p">]</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">wise</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"*"</span><span class="p">]</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">mdfc</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"**"</span><span class="p">]</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">simbad</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"mk"</span><span class="p">,</span> <span class="s2">"sp"</span><span class="p">,</span> <span class="s2">"sptype"</span><span class="p">,</span> <span class="s2">"fe_h"</span><span class="p">,</span>
+                                  <span class="s2">"pm"</span><span class="p">,</span> <span class="s2">"plx"</span><span class="p">,</span> <span class="s2">"rv_value"</span><span class="p">,</span>
+                                  <span class="s2">"flux(U)"</span><span class="p">,</span> <span class="s2">"flux_error(U)"</span><span class="p">,</span>
+                                  <span class="s2">"flux(B)"</span><span class="p">,</span> <span class="s2">"flux_error(B)"</span><span class="p">,</span>
+                                  <span class="s2">"flux(V)"</span><span class="p">,</span> <span class="s2">"flux_error(V)"</span><span class="p">,</span>
+                                  <span class="s2">"flux(R)"</span><span class="p">,</span> <span class="s2">"flux_error(R)"</span><span class="p">,</span>
+                                  <span class="s2">"flux(I)"</span><span class="p">,</span> <span class="s2">"flux_error(I)"</span><span class="p">,</span>
+                                  <span class="s2">"flux(J)"</span><span class="p">,</span> <span class="s2">"flux_error(J)"</span><span class="p">,</span>
+                                  <span class="s2">"flux(H)"</span><span class="p">,</span> <span class="s2">"flux_error(H)"</span><span class="p">,</span>
+                                  <span class="s2">"flux(K)"</span><span class="p">,</span> <span class="s2">"flux_error(K)"</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section id="catalog-queries">
 <h3>Catalog queries<a class="headerlink" href="#catalog-queries" title="Link to this heading">#</a></h3>
 <p>The queries that are collected from each catalog.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">gaia</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Gmag&quot;</span><span class="p">,</span> <span class="s2">&quot;pmRA&quot;</span><span class="p">,</span> <span class="s2">&quot;pmDE&quot;</span><span class="p">]</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">tycho</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;VTmag&quot;</span><span class="p">]</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">two_mass</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jmag&quot;</span><span class="p">,</span> <span class="s2">&quot;Hmag&quot;</span><span class="p">,</span> <span class="s2">&quot;Kmag&quot;</span><span class="p">]</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">nomad</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Vmag&quot;</span><span class="p">]</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">wise</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;W1mag&quot;</span><span class="p">,</span> <span class="s2">&quot;W3mag&quot;</span><span class="p">,</span> <span class="s2">&quot;Hmag&quot;</span><span class="p">,</span> <span class="s2">&quot;Kmag&quot;</span><span class="p">]</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">mdfc</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;med-Lflux&quot;</span><span class="p">,</span> <span class="s2">&quot;med-Nflux&quot;</span><span class="p">,</span> <span class="s2">&quot;Hmag&quot;</span><span class="p">,</span> <span class="s2">&quot;Kmag&quot;</span><span class="p">]</span>
-<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">simbad</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;RA&quot;</span><span class="p">,</span> <span class="s2">&quot;DEC&quot;</span><span class="p">,</span> <span class="s2">&quot;PMRA&quot;</span><span class="p">,</span> <span class="s2">&quot;PMDEC&quot;</span><span class="p">,</span>
-                                 <span class="s2">&quot;FLUX_V&quot;</span><span class="p">,</span> <span class="s2">&quot;FLUX_H&quot;</span><span class="p">,</span> <span class="s2">&quot;FLUX_K&quot;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">gaia</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Gmag"</span><span class="p">,</span> <span class="s2">"pmRA"</span><span class="p">,</span> <span class="s2">"pmDE"</span><span class="p">]</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">tycho</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"VTmag"</span><span class="p">]</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">two_mass</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Jmag"</span><span class="p">,</span> <span class="s2">"Hmag"</span><span class="p">,</span> <span class="s2">"Kmag"</span><span class="p">]</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">nomad</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Vmag"</span><span class="p">]</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">wise</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"W1mag"</span><span class="p">,</span> <span class="s2">"W3mag"</span><span class="p">,</span> <span class="s2">"Hmag"</span><span class="p">,</span> <span class="s2">"Kmag"</span><span class="p">]</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">mdfc</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"med-Lflux"</span><span class="p">,</span> <span class="s2">"med-Nflux"</span><span class="p">,</span> <span class="s2">"Hmag"</span><span class="p">,</span> <span class="s2">"Kmag"</span><span class="p">]</span>
+<span class="n">OPTIONS</span><span class="o">.</span><span class="n">catalogs</span><span class="o">.</span><span class="n">simbad</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"RA"</span><span class="p">,</span> <span class="s2">"DEC"</span><span class="p">,</span> <span class="s2">"PMRA"</span><span class="p">,</span> <span class="s2">"PMDEC"</span><span class="p">,</span>
+                                 <span class="s2">"FLUX_V"</span><span class="p">,</span> <span class="s2">"FLUX_H"</span><span class="p">,</span> <span class="s2">"FLUX_K"</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The possible fields for the catalogs are the following</p>
 <p>For <code class="code highlight python docutils literal highlight-python"><span class="n">simbad</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;MAIN_ID&#39;</span><span class="p">,</span> <span class="s1">&#39;RA&#39;</span><span class="p">,</span> <span class="s1">&#39;DEC&#39;</span><span class="p">,</span> <span class="s1">&#39;RA_PREC&#39;</span><span class="p">,</span> <span class="s1">&#39;DEC_PREC&#39;</span><span class="p">,</span> <span class="s1">&#39;COO_ERR_MAJA&#39;</span><span class="p">,</span>
-<span class="s1">&#39;COO_ERR_MINA&#39;</span><span class="p">,</span> <span class="s1">&#39;COO_ERR_ANGLE&#39;</span><span class="p">,</span> <span class="s1">&#39;COO_QUAL&#39;</span><span class="p">,</span> <span class="s1">&#39;COO_WAVELENGTH&#39;</span><span class="p">,</span> <span class="s1">&#39;COO_BIBCODE&#39;</span><span class="p">,</span>
-<span class="s1">&#39;MK_ds&#39;</span><span class="p">,</span> <span class="s1">&#39;MK_mss&#39;</span><span class="p">,</span> <span class="s1">&#39;MK_Spectral_type&#39;</span><span class="p">,</span> <span class="s1">&#39;MK_bibcode&#39;</span><span class="p">,</span> <span class="s1">&#39;SP_TYPE&#39;</span><span class="p">,</span> <span class="s1">&#39;SP_TYPE_2&#39;</span><span class="p">,</span>
-<span class="s1">&#39;SP_QUAL&#39;</span><span class="p">,</span> <span class="s1">&#39;SP_BIBCODE&#39;</span><span class="p">,</span> <span class="s1">&#39;Fe_H_Teff&#39;</span><span class="p">,</span> <span class="s1">&#39;Fe_H_log_g&#39;</span><span class="p">,</span> <span class="s1">&#39;Fe_H_Fe_H&#39;</span><span class="p">,</span> <span class="s1">&#39;Fe_H_flag&#39;</span><span class="p">,</span>
-<span class="s1">&#39;Fe_H_CompStar&#39;</span><span class="p">,</span> <span class="s1">&#39;Fe_H_CatNo&#39;</span><span class="p">,</span> <span class="s1">&#39;Fe_H_bibcode&#39;</span><span class="p">,</span> <span class="s1">&#39;PMRA&#39;</span><span class="p">,</span> <span class="s1">&#39;PMDEC&#39;</span><span class="p">,</span> <span class="s1">&#39;PM_ERR_MAJA&#39;</span><span class="p">,</span>
-<span class="s1">&#39;PM_ERR_MINA&#39;</span><span class="p">,</span> <span class="s1">&#39;PM_ERR_ANGLE&#39;</span><span class="p">,</span> <span class="s1">&#39;PLX_VALUE&#39;</span><span class="p">,</span> <span class="s1">&#39;RV_VALUE&#39;</span><span class="p">,</span> <span class="s1">&#39;FLUX_U&#39;</span><span class="p">,</span> <span class="s1">&#39;FLUX_ERROR_U&#39;</span><span class="p">,</span>
-<span class="s1">&#39;FLUX_B&#39;</span><span class="p">,</span> <span class="s1">&#39;FLUX_ERROR_B&#39;</span><span class="p">,</span> <span class="s1">&#39;FLUX_V&#39;</span><span class="p">,</span> <span class="s1">&#39;FLUX_ERROR_V&#39;</span><span class="p">,</span> <span class="s1">&#39;FLUX_R&#39;</span><span class="p">,</span> <span class="s1">&#39;FLUX_ERROR_R&#39;</span><span class="p">,</span>
-<span class="s1">&#39;FLUX_I&#39;</span><span class="p">,</span> <span class="s1">&#39;FLUX_ERROR_I&#39;</span><span class="p">,</span> <span class="s1">&#39;FLUX_J&#39;</span><span class="p">,</span> <span class="s1">&#39;FLUX_ERROR_J&#39;</span><span class="p">,</span> <span class="s1">&#39;FLUX_H&#39;</span><span class="p">,</span> <span class="s1">&#39;FLUX_ERROR_H&#39;</span><span class="p">,</span>
-<span class="s1">&#39;FLUX_K&#39;</span><span class="p">,</span> <span class="s1">&#39;FLUX_ERROR_K&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">'MAIN_ID'</span><span class="p">,</span> <span class="s1">'RA'</span><span class="p">,</span> <span class="s1">'DEC'</span><span class="p">,</span> <span class="s1">'RA_PREC'</span><span class="p">,</span> <span class="s1">'DEC_PREC'</span><span class="p">,</span> <span class="s1">'COO_ERR_MAJA'</span><span class="p">,</span>
+<span class="s1">'COO_ERR_MINA'</span><span class="p">,</span> <span class="s1">'COO_ERR_ANGLE'</span><span class="p">,</span> <span class="s1">'COO_QUAL'</span><span class="p">,</span> <span class="s1">'COO_WAVELENGTH'</span><span class="p">,</span> <span class="s1">'COO_BIBCODE'</span><span class="p">,</span>
+<span class="s1">'MK_ds'</span><span class="p">,</span> <span class="s1">'MK_mss'</span><span class="p">,</span> <span class="s1">'MK_Spectral_type'</span><span class="p">,</span> <span class="s1">'MK_bibcode'</span><span class="p">,</span> <span class="s1">'SP_TYPE'</span><span class="p">,</span> <span class="s1">'SP_TYPE_2'</span><span class="p">,</span>
+<span class="s1">'SP_QUAL'</span><span class="p">,</span> <span class="s1">'SP_BIBCODE'</span><span class="p">,</span> <span class="s1">'Fe_H_Teff'</span><span class="p">,</span> <span class="s1">'Fe_H_log_g'</span><span class="p">,</span> <span class="s1">'Fe_H_Fe_H'</span><span class="p">,</span> <span class="s1">'Fe_H_flag'</span><span class="p">,</span>
+<span class="s1">'Fe_H_CompStar'</span><span class="p">,</span> <span class="s1">'Fe_H_CatNo'</span><span class="p">,</span> <span class="s1">'Fe_H_bibcode'</span><span class="p">,</span> <span class="s1">'PMRA'</span><span class="p">,</span> <span class="s1">'PMDEC'</span><span class="p">,</span> <span class="s1">'PM_ERR_MAJA'</span><span class="p">,</span>
+<span class="s1">'PM_ERR_MINA'</span><span class="p">,</span> <span class="s1">'PM_ERR_ANGLE'</span><span class="p">,</span> <span class="s1">'PLX_VALUE'</span><span class="p">,</span> <span class="s1">'RV_VALUE'</span><span class="p">,</span> <span class="s1">'FLUX_U'</span><span class="p">,</span> <span class="s1">'FLUX_ERROR_U'</span><span class="p">,</span>
+<span class="s1">'FLUX_B'</span><span class="p">,</span> <span class="s1">'FLUX_ERROR_B'</span><span class="p">,</span> <span class="s1">'FLUX_V'</span><span class="p">,</span> <span class="s1">'FLUX_ERROR_V'</span><span class="p">,</span> <span class="s1">'FLUX_R'</span><span class="p">,</span> <span class="s1">'FLUX_ERROR_R'</span><span class="p">,</span>
+<span class="s1">'FLUX_I'</span><span class="p">,</span> <span class="s1">'FLUX_ERROR_I'</span><span class="p">,</span> <span class="s1">'FLUX_J'</span><span class="p">,</span> <span class="s1">'FLUX_ERROR_J'</span><span class="p">,</span> <span class="s1">'FLUX_H'</span><span class="p">,</span> <span class="s1">'FLUX_ERROR_H'</span><span class="p">,</span>
+<span class="s1">'FLUX_K'</span><span class="p">,</span> <span class="s1">'FLUX_ERROR_K'</span>
 </pre></div>
 </div>
 </div>
@@ -594,8 +623,8 @@ the <code class="code highlight python docutils literal highlight-python"><span 
     class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logger-settings">Logger Settings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ob-creation">OB Creation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution">Resolution</a></li>
@@ -614,13 +643,13 @@ the <code class="code highlight python docutils literal highlight-python"><span 
   </nav></div>
 
   <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/modules/options.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/modules/options.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
 
 </div></div>
               
@@ -635,8 +664,8 @@ the <code class="code highlight python docutils literal highlight-python"><span 
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -656,7 +685,7 @@ the <code class="code highlight python docutils literal highlight-python"><span 
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     <br/>
   </p>
 </div>
@@ -670,7 +699,7 @@ the <code class="code highlight python docutils literal highlight-python"><span 
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
 </p></div>
       
     </div>

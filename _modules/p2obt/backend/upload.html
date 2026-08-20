@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>p2obt.backend.upload &#8212; p2obt 4.3.2 documentation</title>
+    <title>p2obt.backend.upload &#8212; p2obt 4.4.0 documentation</title>
   
   
   
@@ -26,40 +26,47 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../../../_static/documentation_options.js?v=32fb297c"></script>
-    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/documentation_options.js?v=2f20d6c1"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/p2obt/backend/upload';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -85,7 +92,7 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -107,7 +114,7 @@
   
   
   
-    <p class="title logo__title">p2obt 4.3.2 documentation</p>
+    <p class="title logo__title">p2obt 4.4.0 documentation</p>
   
 </a></div>
     
@@ -176,11 +183,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
     </div>
     
@@ -272,11 +286,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
       </div>
     
@@ -340,94 +361,93 @@
   <h1>Source code for p2obt.backend.upload</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span><span class="w"> </span><span class="nn">getpass</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">keyring</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">p2api</span>
 
 <span class="n">TARGET_MAPPING</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;TARGET.NAME&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ra&quot;</span><span class="p">:</span> <span class="s2">&quot;ra&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;dec&quot;</span><span class="p">:</span> <span class="s2">&quot;dec&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;propRA&quot;</span><span class="p">:</span> <span class="s2">&quot;properMotionRa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;propDec&quot;</span><span class="p">:</span> <span class="s2">&quot;properMotionDec&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;diffRA&quot;</span><span class="p">:</span> <span class="s2">&quot;differentialRa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;diffDec&quot;</span><span class="p">:</span> <span class="s2">&quot;differentialDec&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;equinox&quot;</span><span class="p">:</span> <span class="s2">&quot;equinox&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;epoch&quot;</span><span class="p">:</span> <span class="s2">&quot;epoch&quot;</span><span class="p">,</span>
+    <span class="s2">"TARGET.NAME"</span><span class="p">:</span> <span class="s2">"name"</span><span class="p">,</span>
+    <span class="s2">"ra"</span><span class="p">:</span> <span class="s2">"ra"</span><span class="p">,</span>
+    <span class="s2">"dec"</span><span class="p">:</span> <span class="s2">"dec"</span><span class="p">,</span>
+    <span class="s2">"propRA"</span><span class="p">:</span> <span class="s2">"properMotionRa"</span><span class="p">,</span>
+    <span class="s2">"propDec"</span><span class="p">:</span> <span class="s2">"properMotionDec"</span><span class="p">,</span>
+    <span class="s2">"diffRA"</span><span class="p">:</span> <span class="s2">"differentialRa"</span><span class="p">,</span>
+    <span class="s2">"diffDec"</span><span class="p">:</span> <span class="s2">"differentialDec"</span><span class="p">,</span>
+    <span class="s2">"equinox"</span><span class="p">:</span> <span class="s2">"equinox"</span><span class="p">,</span>
+    <span class="s2">"epoch"</span><span class="p">:</span> <span class="s2">"epoch"</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">CONSTRAINTS_MAPPING</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;CONSTRAINT.SET.NAME&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;sky_transparency&quot;</span><span class="p">:</span> <span class="s2">&quot;skyTransparency&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;air_mass&quot;</span><span class="p">:</span> <span class="s2">&quot;airmass&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;fractional_lunar_illumination&quot;</span><span class="p">:</span> <span class="s2">&quot;fli&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;moon_angular_distance&quot;</span><span class="p">:</span> <span class="s2">&quot;moonDistance&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;watervapour&quot;</span><span class="p">:</span> <span class="s2">&quot;waterVapour&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;atm&quot;</span><span class="p">:</span> <span class="s2">&quot;atm&quot;</span><span class="p">,</span>
+    <span class="s2">"CONSTRAINT.SET.NAME"</span><span class="p">:</span> <span class="s2">"name"</span><span class="p">,</span>
+    <span class="s2">"sky_transparency"</span><span class="p">:</span> <span class="s2">"skyTransparency"</span><span class="p">,</span>
+    <span class="s2">"air_mass"</span><span class="p">:</span> <span class="s2">"airmass"</span><span class="p">,</span>
+    <span class="s2">"fractional_lunar_illumination"</span><span class="p">:</span> <span class="s2">"fli"</span><span class="p">,</span>
+    <span class="s2">"moon_angular_distance"</span><span class="p">:</span> <span class="s2">"moonDistance"</span><span class="p">,</span>
+    <span class="s2">"watervapour"</span><span class="p">:</span> <span class="s2">"waterVapour"</span><span class="p">,</span>
+    <span class="s2">"atm"</span><span class="p">:</span> <span class="s2">"atm"</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">TEMPLATE_MAPPING</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;ACQUISITION.TEMPLATE.NAME&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;TEL.TARG.PARALLAX&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;TEL.TARG.FLUX.L&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;TEL.TARG.FLUX.N&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;TEL.TARG.MAG.H&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;SEQ.TARG.MAG.K&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;COU.AO.TYPE&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;COU.NGS.NAME&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;COU.NGS.ALPHA&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;COU.NGS.DELTA&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;COU.NGS.EPOCH&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;COU.NGS.EQUINOX&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;COU.NGS.SOURCE&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;COU.NGS.PMA&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;COU.NGS.PMD&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;COU.NGS.MAG&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;COU.LGS.NAME&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;COU.LGS.ALPHA&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;COU.LGS.DELTA&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;COU.LGS.EPOCH&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;COU.LGS.EQUINOX&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;COU.LGS.SOURCE&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;COU.LGS.PMA&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;COU.LGS.PMD&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;COU.LGS.MAG&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;ISS.BASELINE&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
-    <span class="s2">&quot;ISS.VLTITYPE&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
-    <span class="s2">&quot;TEMPLATE.NAME&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;DET1.DIT&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;DET1.READ.CURNAME&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;SEQ.DIL.USER.WL0&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;SEQ.DIL.WL0&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;SEQ.FRINGES.NCYCLES&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;SEQ.OFFSET.ALPHA&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
-    <span class="s2">&quot;SEQ.OFFSET.DELTA&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
-    <span class="s2">&quot;SEQ.PHOTO.ST&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-    <span class="s2">&quot;SEQ.SKY.OFFS.ALPHA&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;SEQ.SKY.OFFS.DELTA&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;SEQ.TRACK.BAND&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;INS.DIL.NAME&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;INS.DIN.NAME&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s2">&quot;DPR.CATG&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"ACQUISITION.TEMPLATE.NAME"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"TEL.TARG.PARALLAX"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"TEL.TARG.FLUX.L"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"TEL.TARG.FLUX.N"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"TEL.TARG.MAG.H"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"SEQ.TARG.MAG.K"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"COU.AO.TYPE"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"COU.NGS.NAME"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"COU.NGS.ALPHA"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"COU.NGS.DELTA"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"COU.NGS.EPOCH"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"COU.NGS.EQUINOX"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"COU.NGS.SOURCE"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"COU.NGS.PMA"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"COU.NGS.PMD"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"COU.NGS.MAG"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"COU.LGS.NAME"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"COU.LGS.ALPHA"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"COU.LGS.DELTA"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"COU.LGS.EPOCH"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"COU.LGS.EQUINOX"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"COU.LGS.SOURCE"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"COU.LGS.PMA"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"COU.LGS.PMD"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"COU.LGS.MAG"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"ISS.BASELINE"</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+    <span class="s2">"ISS.VLTITYPE"</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+    <span class="s2">"TEMPLATE.NAME"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"DET1.DIT"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"DET1.READ.CURNAME"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"SEQ.DIL.USER.WL0"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"SEQ.DIL.WL0"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"SEQ.FRINGES.NCYCLES"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"SEQ.OFFSET.ALPHA"</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+    <span class="s2">"SEQ.OFFSET.DELTA"</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+    <span class="s2">"SEQ.PHOTO.ST"</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="s2">"SEQ.SKY.OFFS.ALPHA"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"SEQ.SKY.OFFS.DELTA"</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">"SEQ.TRACK.BAND"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"INS.DIL.NAME"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"INS.DIN.NAME"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">"DPR.CATG"</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># TODO: Hard code this and check for upload</span>
 <span class="n">README_TEMPLATE</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Main observer&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;e-mail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Phone number&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Skype&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Zoom&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">"Date"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"Main observer"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"e-mail"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"Phone number"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"Skype"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"Zoom"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">}</span>
 
 
 <div class="viewcode-block" id="apply_mapping">
 <a class="viewcode-back" href="../../../modules/upload.html#p2obt.backend.upload.apply_mapping">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">apply_mapping</span><span class="p">(</span><span class="n">content</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">mapping</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Applies mapping to make template serializable.&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_mapping</span><span class="p">(</span><span class="n">content</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">mapping</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Applies mapping to make template serializable."""</span>
     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">content</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">mapping</span><span class="p">[</span><span class="n">key</span><span class="p">]):</span>
@@ -443,7 +463,7 @@
             <span class="k">elif</span> <span class="n">mapping</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
                 <span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">mapping</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">:</span>
-                <span class="n">value</span> <span class="o">=</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;T&quot;</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"T"</span>
         <span class="n">content</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
 
 
@@ -454,38 +474,38 @@
     <span class="n">user_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">store_password</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">remove_password</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="n">server</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;demo&quot;</span><span class="p">,</span>
+    <span class="n">server</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"demo"</span><span class="p">,</span>
 <span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Login to the p2 API with the given username. Return the API connection.</span>
+<span class="w">    </span><span class="sd">"""Login to the p2 API with the given username. Return the API connection.</span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    username : str, optional</span>
 <span class="sd">        The p2 user name.</span>
 <span class="sd">    server: str, optional</span>
-<span class="sd">        Either &quot;demo&quot;, &quot;production&quot; for paranal or &quot;production_lasilla&quot; for la</span>
+<span class="sd">        Either "demo", "production" for paranal or "production_lasilla" for la</span>
 <span class="sd">        silla.</span>
 <span class="sd">    store_password: bool, optional</span>
-<span class="sd">        If &#39;True&#39; the password will be stored in the keyring.</span>
+<span class="sd">        If 'True' the password will be stored in the keyring.</span>
 <span class="sd">    remove_password: bool, optional</span>
-<span class="sd">        If &#39;True&#39; the password will be removed from the keyring.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.eso.org/p2</span><span class="si">{</span><span class="s1">&#39;demo&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;demo&#39;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="sd">        If 'True' the password will be removed from the keyring.</span>
+<span class="sd">    """</span>
+    <span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://www.eso.org/p2</span><span class="si">{</span><span class="s1">'demo'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'demo'</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">''</span><span class="si">}</span><span class="s2">"</span>
     <span class="k">if</span> <span class="n">user_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">user_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Input your ESO-username: &quot;</span><span class="p">)</span>
+        <span class="n">user_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Input your ESO-username: "</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">remove_password</span><span class="p">:</span>
         <span class="n">keyring</span><span class="o">.</span><span class="n">delete_password</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">user_name</span><span class="p">)</span>
 
     <span class="n">password</span> <span class="o">=</span> <span class="n">keyring</span><span class="o">.</span><span class="n">get_password</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">user_name</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">password</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Password not found in keyring.&quot;</span><span class="p">)</span>
-        <span class="n">password_prompt</span> <span class="o">=</span> <span class="s2">&quot;Input your ESO-password: &quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Password not found in keyring."</span><span class="p">)</span>
+        <span class="n">password_prompt</span> <span class="o">=</span> <span class="s2">"Input your ESO-password: "</span>
         <span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="n">password_prompt</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">store_password</span><span class="p">:</span>
             <span class="n">keyring</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">user_name</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Password stored in keyring.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Password stored in keyring."</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Password retrieved from keyring.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Password retrieved from keyring."</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">p2api</span><span class="o">.</span><span class="n">ApiConnection</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">user_name</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span></div>
 
@@ -494,7 +514,7 @@
 <div class="viewcode-block" id="get_remote_run">
 <a class="viewcode-back" href="../../../modules/upload.html#p2obt.backend.upload.get_remote_run">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_remote_run</span><span class="p">(</span><span class="n">connection</span><span class="p">:</span> <span class="n">p2api</span><span class="o">.</span><span class="n">p2api</span><span class="o">.</span><span class="n">ApiConnection</span><span class="p">,</span> <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets the run that corresponds to the period, proposal and the number and</span>
+<span class="w">    </span><span class="sd">"""Gets the run that corresponds to the period, proposal and the number and</span>
 <span class="sd">    returns its runId.</span>
 
 <span class="sd">    Parameters</span>
@@ -507,12 +527,12 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    run_id : int, optional</span>
-<span class="sd">        The run&#39;s id that can be used to access and modify it with the p2api.</span>
-<span class="sd">        If not found return &quot;None&quot;.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">        The run's id that can be used to access and modify it with the p2api.</span>
+<span class="sd">        If not found return "None".</span>
+<span class="sd">    """</span>
     <span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <span class="n">connection</span><span class="o">.</span><span class="n">getRuns</span><span class="p">()[</span><span class="mi">0</span><span class="p">]:</span>
-        <span class="k">if</span> <span class="n">run_id</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">run</span><span class="p">[</span><span class="s2">&quot;progId&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
-            <span class="k">return</span> <span class="n">run</span><span class="p">[</span><span class="s2">&quot;containerId&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">run_id</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">run</span><span class="p">[</span><span class="s2">"progId"</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">run</span><span class="p">[</span><span class="s2">"containerId"</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="kc">None</span></div>
 
@@ -523,7 +543,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">remote_container_exists</span><span class="p">(</span>
     <span class="n">connection</span><span class="p">:</span> <span class="n">p2api</span><span class="o">.</span><span class="n">p2api</span><span class="o">.</span><span class="n">ApiConnection</span><span class="p">,</span> <span class="n">container_id</span><span class="p">:</span> <span class="nb">int</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the container with this id exists on p2.</span>
+<span class="w">    </span><span class="sd">"""Checks if the container with this id exists on p2.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -535,8 +555,8 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    container_exists : bool</span>
-<span class="sd">        &#39;True&#39; if container exists, otherwise &#39;False&#39;.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">        'True' if container exists, otherwise 'False'.</span>
+<span class="sd">    """</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">connection</span><span class="o">.</span><span class="n">getContainer</span><span class="p">(</span><span class="n">container_id</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -552,47 +572,47 @@
     <span class="n">connection</span><span class="p">:</span> <span class="n">p2api</span><span class="o">.</span><span class="n">p2api</span><span class="o">.</span><span class="n">ApiConnection</span><span class="p">,</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">container_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="n">container_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;concatenation&quot;</span><span class="p">,</span>
+    <span class="n">container_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"concatenation"</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a container on p2.</span>
+<span class="w">    </span><span class="sd">"""Creates a container on p2.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    connection : p2api.p2api.ApiConnection</span>
 <span class="sd">        The P2 python api connection.</span>
 <span class="sd">    name: str</span>
-<span class="sd">        The container&#39;s name.</span>
+<span class="sd">        The container's name.</span>
 <span class="sd">    container_id : int</span>
 <span class="sd">        The id that specifies the container on p2.</span>
 <span class="sd">    type : str</span>
-<span class="sd">        Container type. Either &quot;folder&quot;, &quot;concatenation&quot; or &quot;group&quot;.</span>
-<span class="sd">        Default is &quot;concatenation&quot;.</span>
-<span class="sd">        service mode (SM) or &quot;im&quot; for imaging mode (IM).</span>
+<span class="sd">        Container type. Either "folder", "concatenation" or "group".</span>
+<span class="sd">        Default is "concatenation".</span>
+<span class="sd">        service mode (SM) or "im" for imaging mode (IM).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    container_id : int</span>
-<span class="sd">        The created container&#39;s id.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating container &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; on p2...&quot;</span><span class="p">)</span>
+<span class="sd">        The created container's id.</span>
+<span class="sd">    """</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Creating container '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">' on p2..."</span><span class="p">)</span>
     <span class="k">match</span> <span class="n">container_type</span><span class="p">:</span>
-        <span class="k">case</span> <span class="s2">&quot;folder&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">connection</span><span class="o">.</span><span class="n">createFolder</span><span class="p">(</span><span class="n">container_id</span><span class="p">,</span> <span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;containerId&quot;</span><span class="p">]</span>
-        <span class="k">case</span> <span class="s2">&quot;group&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">connection</span><span class="o">.</span><span class="n">createGroup</span><span class="p">(</span><span class="n">container_id</span><span class="p">,</span> <span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;containerId&quot;</span><span class="p">]</span>
-        <span class="k">case</span> <span class="s2">&quot;timelink&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">connection</span><span class="o">.</span><span class="n">createTimeLink</span><span class="p">(</span><span class="n">container_id</span><span class="p">,</span> <span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;containerId&quot;</span><span class="p">]</span>
+        <span class="k">case</span> <span class="s2">"folder"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">connection</span><span class="o">.</span><span class="n">createFolder</span><span class="p">(</span><span class="n">container_id</span><span class="p">,</span> <span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"containerId"</span><span class="p">]</span>
+        <span class="k">case</span> <span class="s2">"group"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">connection</span><span class="o">.</span><span class="n">createGroup</span><span class="p">(</span><span class="n">container_id</span><span class="p">,</span> <span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"containerId"</span><span class="p">]</span>
+        <span class="k">case</span> <span class="s2">"timelink"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">connection</span><span class="o">.</span><span class="n">createTimeLink</span><span class="p">(</span><span class="n">container_id</span><span class="p">,</span> <span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"containerId"</span><span class="p">]</span>
         <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">connection</span><span class="o">.</span><span class="n">createConcatenation</span><span class="p">(</span><span class="n">container_id</span><span class="p">,</span> <span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;containerId&quot;</span><span class="p">]</span></div>
+            <span class="k">return</span> <span class="n">connection</span><span class="o">.</span><span class="n">createConcatenation</span><span class="p">(</span><span class="n">container_id</span><span class="p">,</span> <span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"containerId"</span><span class="p">]</span></div>
 
 
 
 <div class="viewcode-block" id="create_ob">
 <a class="viewcode-back" href="../../../modules/upload.html#p2obt.backend.upload.create_ob">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">create_ob</span><span class="p">(</span>
-    <span class="n">connection</span><span class="p">:</span> <span class="n">p2api</span><span class="o">.</span><span class="n">p2api</span><span class="o">.</span><span class="n">ApiConnection</span><span class="p">,</span> <span class="n">container_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="n">Dict</span>
+    <span class="n">connection</span><span class="p">:</span> <span class="n">p2api</span><span class="o">.</span><span class="n">p2api</span><span class="o">.</span><span class="n">ApiConnection</span><span class="p">,</span> <span class="n">container_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="nb">dict</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates an OB on p2.</span>
+<span class="w">    </span><span class="sd">"""Creates an OB on p2.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -600,22 +620,22 @@
 <span class="sd">        The P2 python api connection.</span>
 <span class="sd">    container_id : int</span>
 <span class="sd">        The id that specifies the container on p2.</span>
-<span class="sd">    header : Dict</span>
+<span class="sd">    header : dict</span>
 <span class="sd">        The header of the OB.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">ob</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">createOB</span><span class="p">(</span><span class="n">container_id</span><span class="p">,</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
-    <span class="n">ob</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;observation&quot;</span><span class="p">][</span><span class="s2">&quot;instrument&quot;</span><span class="p">]</span>
-    <span class="n">ob</span><span class="p">[</span><span class="s2">&quot;obsDescription&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
-    <span class="n">ob</span><span class="p">[</span><span class="s2">&quot;obsDescription&quot;</span><span class="p">][</span><span class="s2">&quot;userComments&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">][</span><span class="s2">&quot;userComments&quot;</span><span class="p">]</span>
+<span class="sd">    """</span>
+    <span class="n">ob</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">createOB</span><span class="p">(</span><span class="n">container_id</span><span class="p">,</span> <span class="n">header</span><span class="p">[</span><span class="s2">"user"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">])</span>
+    <span class="n">ob</span><span class="p">[</span><span class="s2">"instrument"</span><span class="p">]</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">"observation"</span><span class="p">][</span><span class="s2">"instrument"</span><span class="p">]</span>
+    <span class="n">ob</span><span class="p">[</span><span class="s2">"obsDescription"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">"user"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span>
+    <span class="n">ob</span><span class="p">[</span><span class="s2">"obsDescription"</span><span class="p">][</span><span class="s2">"userComments"</span><span class="p">]</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">"user"</span><span class="p">][</span><span class="s2">"userComments"</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">header</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ob</span><span class="p">:</span>
             <span class="k">continue</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;target&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">"target"</span><span class="p">:</span>
             <span class="n">mapping</span> <span class="o">=</span> <span class="n">TARGET_MAPPING</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;constraints&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">"constraints"</span><span class="p">:</span>
             <span class="n">mapping</span> <span class="o">=</span> <span class="n">CONSTRAINTS_MAPPING</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">sub_key</span><span class="p">,</span> <span class="n">sub_value</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -623,16 +643,16 @@
                     <span class="k">continue</span>
                 <span class="n">ob</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">mapping</span><span class="p">[</span><span class="n">sub_key</span><span class="p">]]</span> <span class="o">=</span> <span class="n">sub_value</span>
     <span class="n">ob</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">saveOB</span><span class="p">(</span><span class="n">ob</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">ob</span><span class="p">[</span><span class="s2">&quot;obId&quot;</span><span class="p">]</span></div>
+    <span class="k">return</span> <span class="n">ob</span><span class="p">[</span><span class="s2">"obId"</span><span class="p">]</span></div>
 
 
 
 <div class="viewcode-block" id="add_template">
 <a class="viewcode-back" href="../../../modules/upload.html#p2obt.backend.upload.add_template">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">add_template</span><span class="p">(</span>
-    <span class="n">connection</span><span class="p">:</span> <span class="n">p2api</span><span class="o">.</span><span class="n">p2api</span><span class="o">.</span><span class="n">ApiConnection</span><span class="p">,</span> <span class="n">ob_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">ob</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">template_kind</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">connection</span><span class="p">:</span> <span class="n">p2api</span><span class="o">.</span><span class="n">p2api</span><span class="o">.</span><span class="n">ApiConnection</span><span class="p">,</span> <span class="n">ob_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">ob</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">template_kind</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds template to an (.obx)-file on the p2.</span>
+<span class="w">    </span><span class="sd">"""Adds template to an (.obx)-file on the p2.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -642,13 +662,13 @@
 <span class="sd">        The id that specifies the ob on p2.</span>
 <span class="sd">    ob : dict</span>
 <span class="sd">    template_kind : str</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;TEMPLATE.NAME&quot;</span>
-    <span class="k">if</span> <span class="n">template_kind</span> <span class="o">==</span> <span class="s2">&quot;acquisition&quot;</span><span class="p">:</span>
-        <span class="n">template_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;ACQUISITION.</span><span class="si">{</span><span class="n">template_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="sd">    """</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s2">"TEMPLATE.NAME"</span>
+    <span class="k">if</span> <span class="n">template_kind</span> <span class="o">==</span> <span class="s2">"acquisition"</span><span class="p">:</span>
+        <span class="n">template_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"ACQUISITION.</span><span class="si">{</span><span class="n">template_name</span><span class="si">}</span><span class="s2">"</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">ob</span><span class="p">[</span><span class="n">template_kind</span><span class="p">]</span>
     <span class="n">apply_mapping</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">TEMPLATE_MAPPING</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Adding template &#39;</span><span class="si">{</span><span class="n">content</span><span class="p">[</span><span class="n">template_name</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\t\t</span><span class="s2">Adding template '</span><span class="si">{</span><span class="n">content</span><span class="p">[</span><span class="n">template_name</span><span class="p">]</span><span class="si">}</span><span class="s2">'..."</span><span class="p">)</span>
     <span class="n">template</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">createTemplate</span><span class="p">(</span><span class="n">ob_id</span><span class="p">,</span> <span class="n">content</span><span class="p">[</span><span class="n">template_name</span><span class="p">])</span>
     <span class="n">template</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">setTemplateParams</span><span class="p">(</span><span class="n">ob_id</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span></div>
 
@@ -657,9 +677,9 @@
 <div class="viewcode-block" id="upload_ob">
 <a class="viewcode-back" href="../../../modules/upload.html#p2obt.backend.upload.upload_ob">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">upload_ob</span><span class="p">(</span>
-    <span class="n">connection</span><span class="p">:</span> <span class="n">p2api</span><span class="o">.</span><span class="n">p2api</span><span class="o">.</span><span class="n">ApiConnection</span><span class="p">,</span> <span class="n">ob</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">container_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">connection</span><span class="p">:</span> <span class="n">p2api</span><span class="o">.</span><span class="n">p2api</span><span class="o">.</span><span class="n">ApiConnection</span><span class="p">,</span> <span class="n">ob</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">container_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -668,19 +688,19 @@
 <span class="sd">    ob : dict</span>
 <span class="sd">    container_id : int</span>
 <span class="sd">        The id that specifies the container on p2.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">container_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span>
 
-    <span class="n">ob_name</span> <span class="o">=</span> <span class="n">ob</span><span class="p">[</span><span class="s2">&quot;header&quot;</span><span class="p">][</span><span class="s2">&quot;user&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Creating OB &#39;</span><span class="si">{</span><span class="n">ob_name</span><span class="si">}</span><span class="s2">&#39;...&quot;</span><span class="p">)</span>
+    <span class="n">ob_name</span> <span class="o">=</span> <span class="n">ob</span><span class="p">[</span><span class="s2">"header"</span><span class="p">][</span><span class="s2">"user"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\t</span><span class="s2">Creating OB '</span><span class="si">{</span><span class="n">ob_name</span><span class="si">}</span><span class="s2">'..."</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">ob_id</span> <span class="o">=</span> <span class="n">create_ob</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">container_id</span><span class="p">,</span> <span class="n">ob</span><span class="p">[</span><span class="s2">&quot;header&quot;</span><span class="p">])</span>
-        <span class="n">add_template</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">ob_id</span><span class="p">,</span> <span class="n">ob</span><span class="p">,</span> <span class="s2">&quot;acquisition&quot;</span><span class="p">)</span>
-        <span class="n">add_template</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">ob_id</span><span class="p">,</span> <span class="n">ob</span><span class="p">,</span> <span class="s2">&quot;observation&quot;</span><span class="p">)</span>
+        <span class="n">ob_id</span> <span class="o">=</span> <span class="n">create_ob</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">container_id</span><span class="p">,</span> <span class="n">ob</span><span class="p">[</span><span class="s2">"header"</span><span class="p">])</span>
+        <span class="n">add_template</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">ob_id</span><span class="p">,</span> <span class="n">ob</span><span class="p">,</span> <span class="s2">"acquisition"</span><span class="p">)</span>
+        <span class="n">add_template</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">ob_id</span><span class="p">,</span> <span class="n">ob</span><span class="p">,</span> <span class="s2">"observation"</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">p2api</span><span class="o">.</span><span class="n">P2Error</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ERROR]: Failed uploading OB &#39;</span><span class="si">{</span><span class="n">ob_name</span><span class="si">}</span><span class="s2">&#39;! See &#39;p2obt.log&#39;.&quot;</span><span class="p">)</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ERROR]: Failed uploading OB &#39;</span><span class="si">{</span><span class="n">ob_name</span><span class="si">}</span><span class="s2">&#39;!&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[ERROR]: Failed uploading OB '</span><span class="si">{</span><span class="n">ob_name</span><span class="si">}</span><span class="s2">'! See 'p2obt.log'."</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[ERROR]: Failed uploading OB '</span><span class="si">{</span><span class="n">ob_name</span><span class="si">}</span><span class="s2">'!"</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 </pre></div>
 
@@ -711,8 +731,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -732,7 +752,7 @@
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     <br/>
   </p>
 </div>
@@ -746,7 +766,7 @@
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
 </p></div>
       
     </div>
