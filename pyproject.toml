@@ -39,10 +39,10 @@ version = { attr = "p2obt.__version__" }
 dev = [
   "numpydoc>=1.8.0",
   "pydata-sphinx-theme>=0.16.0",
-  "pytest>=8.3.3",
   "sphinx>=7.4.7",
   "sphinx-autodoc-typehints>=2.3.0",
 ]
+test = ["pytest>=8.3.3"]
 
 [build-system]
 requires = ["setuptools >= 61.0"]
@@ -56,3 +56,20 @@ include = ["p2obt*"]
 
 [project.urls]
 repository = "https://github.com/MBSck/p2obt"
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
+
+[tool.pixi.pypi-dependencies]
+p2obt = { path = ".", editable = true }
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+dev = { features = ["dev"], solve-group = "default" }
+test = { features = ["test"], solve-group = "default" }
+
+[tool.pixi.tasks]
+
+[tool.pixi.feature.test.tasks]
+test = "pytest"

@@ -1,12 +1,12 @@
 import re
-from typing import Any, Dict, List, Tuple
+from typing import Any
 
 import astropy.units as u
 
 
 def replace_elements(
-    nested_list: List[List], fill: Any | None = None, default: Any | None = None
-) -> List[List]:
+    nested_list: list[list[Any]], fill: Any | None = None, default: Any | None = None
+) -> list[list[Any]]:
     """Replaces all elements in a nested list with a fill value."""
     value = fill if fill is not None and not isinstance(fill, (list, dict)) else default
     for i, item in enumerate(nested_list):
@@ -14,30 +14,31 @@ def replace_elements(
             replace_elements(item, value, default)
         else:
             nested_list[i] = value
+
     return nested_list
 
 
 # TODO: Finish this
 def create_night_plan_dict(
-    targets: List[str] | None = None,
-    calibrators: List[List[str] | str] | None = None,
-    orders: Dict[str, str] | List[str] | str | None = None,
-    tags: Dict[str, str] | List[str] | str | None = None,
-    resolution: Dict[str, str] | List[str] | str | None = None,
-    configuration: Dict[str, str] | List[str] | str | None = None,
-    modes: Dict[str, str] | List[str] | str | None = None,
+    targets: list[str] | None = None,
+    calibrators: list[list[str] | str] | None = None,
+    orders: dict[str, str] | list[str] | str | None = None,
+    tags: dict[str, str] | list[str] | str | None = None,
+    resolution: dict[str, str] | list[str] | str | None = None,
+    configuration: dict[str, str] | list[str] | str | None = None,
+    modes: dict[str, str] | list[str] | str | None = None,
 ):
     """Creates a night plan dictionary for the observations.
 
-    targets : list, optional
+    targets : list of str, optional
         A list of targets. If no night plan is given, this list
         and the calibrators must be given.
-    calibrators : list, optional
+    calibrators : list of list of str or list of str, optional
         A list of calibrators that must be given with the targets.
-    orders : list, optional
+    orders : list of str or str, optional
         A list of the orders of the calibrators. If not given,
         it will be assumed that the calibrators are before the targets.
-    tags : list, optional
+    tags : list of str or str, optional
         A list of the tags of the calibrators. If not given, it will
         be "LN" for all calibrators.
     resolution : dict or list of str or str, optional
@@ -102,7 +103,7 @@ def remove_parenthesis(input_str: str) -> str:
 
 
 # TODO: Reimplement this somehow
-def prompt_user(message: str, selections: List[str]) -> str:
+def prompt_user(message: str, selections: list[str]) -> str:
     """Prompts the user for a numerical input and returns
     the associated value from the selection list.
 
@@ -123,34 +124,36 @@ def prompt_user(message: str, selections: List[str]) -> str:
     return selections[int(input(notice)) - 1]
 
 
-def contains_element(list_to_search: List, element_to_search: str) -> bool:
+def contains_element(list_to_search: list, element_to_search: str) -> bool:
     """Checks if an element is in the list searched and returns
-    'True' or 'False'
+    `True` or `False`
 
     Parameters
     ----------
-    list_to_search: List
-        The list to be searched in
+    list_to_search: list
+        The list to be searched in.
     element_to_search: str
-        The element being searched for
+        The element being searched for.
 
     Returns
     -------
     element_in_list: bool
-        'True' if element is found, 'False' otherwise
+        `True` if element is found, `False` otherwise.
     """
     return any(element_to_search in element for element in list_to_search)
 
 
-def convert_proper_motions(*proper_motions: u.mas, rfloat: bool | None = True) -> Tuple:
-    """Converts the proper motions from [mas/yr] to [arcsec/yr].
+# TODO: Replace this by converting float to float with conversion factor only.
+# Remove astropy to speed up conversion
+def convert_proper_motions(*proper_motions: u.mas, rfloat: bool | None = True) -> tuple:
+    """Converts the proper motions from (mas/yr) to (arcsec/yr).
 
-    Input is assumed to be in [mas], if given as float.
+    Input is assumed to be in (mas), if given as a float.
     """
     if all(not isinstance(x, u.Quantity) for x in proper_motions):
         proper_motions = map(lambda x: x * u.mas, proper_motions)
     else:
-        raise IOError("Please input proper motions as float or" " astropy.units.mas.")
+        raise OSError("Please input proper motions as float or astropy.units.mas.")
 
     proper_motions = u.Quantity([x.to(u.arcsec) for x in proper_motions])
     return proper_motions.value if rfloat else proper_motions

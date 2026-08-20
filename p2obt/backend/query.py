@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import Dict, List
 
 import astropy.units as u
 import pandas as pd
@@ -12,7 +11,7 @@ from ..config.options import OPTIONS
 from .utils import add_space, remove_parenthesis
 
 VIZIER = Vizier()
-TARGET_INFO_FILE = list((Path(__file__).parent.parent / "config").glob("*.xlsx"))[0]
+TARGET_INFO_FILE = next((Path(__file__).parent.parent / "config").glob("*.xlsx"))
 TARGET_INFO_MAPPING = {
     "local.RA": "RA [hms]",
     "local.DEC": "DEC [dms]",
@@ -36,7 +35,7 @@ TARGET_INFO_MAPPING = {
 }
 
 
-def query_dust_extinction(name: str) -> Dict:
+def query_dust_extinction(name: str) -> dict:
     """Queries the dust extinctions for the specified target.
 
     Parameters
@@ -68,7 +67,7 @@ def query_local_catalog(name: str):
 
     Returns
     -------
-    target : Dict
+    target : dict
     """
     if OPTIONS.catalogs.local.active == "standard":
         sheet_name = OPTIONS.catalogs.local.standard
@@ -95,7 +94,7 @@ def query_local_catalog(name: str):
 
 
 # TODO: Add query of the magnitude from Simbad?
-def get_best_match(target: Dict, catalog: str, catalog_table: Table) -> Table:
+def get_best_match(target: dict, catalog: str, catalog_table: Table) -> Table:
     """Gets the best match from the catalog entries
 
     Parameters
@@ -104,12 +103,12 @@ def get_best_match(target: Dict, catalog: str, catalog_table: Table) -> Table:
         The target's queried information.
     catalog : str
         The catalog's name.
-    catalog_table : Table
+    catalog_table : astropy.table.Table
         The table containing the queried catalog's results.
 
     Returns
     -------
-    best_match : Table
+    best_match : astropy.table.Table
         The best match from the queried catalog's table.
     """
     best_matches = {}
@@ -149,12 +148,11 @@ def get_catalog(name: str, catalog: str, match_radius: u.arcsec = 5.0):
     catalog : str
         The catalog's name.
     match_radius : astropy.units.arcsec
-        The radius in which is queried.
-        Default is 5.
+        The radius in which is queried. Defaults to `5.0`.
 
     Returns
     -------
-    catalog_table : Table
+    catalog_table : astropy.table.Table
         The table containing the queried catalog's results.
     """
     if not isinstance(match_radius, u.Quantity):
@@ -185,11 +183,11 @@ def get_catalog(name: str, catalog: str, match_radius: u.arcsec = 5.0):
 # TODO: Make a pretty print built in functionality for the dictionary.
 def query(
     name: str,
-    catalogs: List | None = None,
-    exclude_catalogs: List | None = None,
+    catalogs: list | None = None,
+    exclude_catalogs: list | None = None,
     match_radius: float | None = 5.0,
     query_exinction: bool | None = False,
-) -> Dict:
+) -> dict:
     """Queries information for an astronomical target by its name from
     various catalogs.
 
@@ -198,14 +196,16 @@ def query(
     name : str
         The source name.
     catalogs : list of str, optional
-        The catalogs to query. By default the catalogs "gaia",
-        "tycho", "nomad", "2mass", "wise", "mdfc" and "simbad"
-        as well as local catalogs (with "local") are included.
+        The catalogs to query. By default the catalogs `"gaia"`,
+        `"tycho"`, `"nomad"`, `"2mass"`, `"wise"`, `"mdfc"` and `"simbad"`
+        as well as local catalogs (with `"local"`) are included.
     exclude_catalogs : list of str
         A list of catalog to be excluded. Can be any of the catalogs
         listed as default for the catalogs parameter.
     match_radius : float, optional
-        The radius in which the target queried. Default is 5.
+        The radius in which the target queried. Defaults to `5.0`.
+    query_extinction : bool, optional
+        If `True`, queries information on the extinction as well. Defaults to `True`
 
     Returns
     -------

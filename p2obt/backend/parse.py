@@ -1,7 +1,6 @@
 import re
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List
 
 
 def parse_operational_mode(line: str) -> str:
@@ -31,7 +30,7 @@ def parse_operational_mode(line: str) -> str:
     return ""
 
 
-def parse_array_config(line: str | None = None) -> List[str]:
+def parse_array_config(line: str | None = None) -> list[str]:
     """Parses the array configuration from string containing it.
 
     Parameters
@@ -214,7 +213,7 @@ def parse_line(parts: str) -> str:
     return " ".join(parts[1:target_name_cutoff])
 
 
-def parse_groups(section: List) -> Dict:
+def parse_groups(section: list) -> dict:
     """Parses any combination of a calibrator-science target block
     into a dictionary containing the individual blocks' information.
 
@@ -268,7 +267,7 @@ def parse_groups(section: List) -> Dict:
     return [entry for entry in data if entry["cals"]]
 
 
-def parse_file_section(lines: List, identifier: str) -> Dict:
+def parse_file_section(lines: list, identifier: str) -> dict:
     """Parses the section of a file that corresponds to the given identifier
     and returns a dict with the keys being the match to the identifier and
     the values being a subset of the lines list.
@@ -305,7 +304,7 @@ def parse_night_plan_to_dict(
     night_plan: Path,
     run_identifier: str | None = "run",
     night_identifier: str | None = "night",
-) -> Dict[str, Dict]:
+) -> dict[str, dict]:
     """Parses the night plan created with `calibrator_find.pro` into the
     individual runs as key of a dictionary.
 

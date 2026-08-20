@@ -1,7 +1,7 @@
 import logging
 import warnings
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Dict, Iterable, List
 
 from p2api.p2api import ApiConnection
 
@@ -37,7 +37,7 @@ OPERATIONAL_MODES = {
 def create_ob(
     target: str,
     ob_kind: str,
-    array: str | List[str],
+    array: str | list[str],
     mode: str = "st",
     sci_name: str | None = None,
     tag: str | None = None,
@@ -58,40 +58,42 @@ def create_ob(
     target : str
         The name of the target.
     ob_kind : str
-        The type of OB. If it is a science target ("sci") or a calibrator ("cal").
+        The type of OB. If it is a science target `"sci"` or a calibrator `"cal"`.
     array : str or list of str
-        Determines the array configuration. Possible values are "UTs",
-        "small", "medium", "large", "extended" or a list with multiple entries.
-    operational_mode : str, optional
-        The mode of operation for MATISSE. Can be either "st"/"standalone"
-        for the MATISSE-standalone mode or "gr"/"gra4mat" for GRA4MAT.
-        Default is standalone.
+        Determines the array configuration. Possible values are `"UTs"`,
+        `"small"`, `"medium"`, `"large"`, `"extended"` or a list with multiple entries.
+    mode : str, optional
+        The mode of operation for MATISSE. Can be either `"st"/"standalone"`
+        for the MATISSE-standalone mode or `"gr"/"gra4mat"` for GRA4MAT.
+        Default is `"standalone"`.
     sci_name : str, optional
         The name of the science target. If the OB is a science OB, this
-        is None.
+        is None. Defaults to `None`.
     tag : str, optional
-        The calibrator tag (L, N or LN).
+        The calibrator tag (L, N or LN). Defaults to `None`.
     resolution : str, optional
-        The resolution of the OB. Can be either "low", "med" or "high".
+        The resolution of the OB. Can be either `"low"`, `"med"` or `"high"`.
+        Defaults to `"low"`.
     obs_type : str, optional
-        The type of the observation. Can be "snapshot", "ts/time/time series",
-        or "im/imaging", for "snapshot", "time-series", or "imaging" respectively.
-        Default is "snapshot".
+        The type of the observation. Can be `"snapshot"`, `"ts/time/time series"`,
+        or `"im/imaging"`, for snapshot, time-series, or imaging respectively.
+        Defaults to `"snapshot"`.
     connection : ApiConnection, optional
-        The connection to the P2 database.
+        The connection to the P2 database. Defaults to `None`.
     container_id : int, optional
-        The id of the container on P2.
+        The id of the container on P2. Defaults to `None`.
     store_password: bool, optional
-        If 'True' the password will be stored in the keyring.
+        If `True` the password will be stored in the keyring. Defaults to `True`.
     remove_password: bool, optional
-        If 'True' the password will be removed from the keyring.
+        If `True` the password will be removed from the keyring. Defaults to `False`.
     user_name : str, optional
-        The user name for the P2 database.
+        The user name for the P2 database. Defaults to `None`.
     server : str, optional
         The server to connect to. Can be either "production" or "test".
-    output_dir : path, optional
+        Defaults to `"production"`.
+    output_dir : pathlib.Path, optional
         The output directory, where the (.obx)-files will be created in.
-        If left at "None" no files will be created.
+        If left at `None` no files will be created. Defaults to `None`.
     """
     try:
         if container_id is not None:
@@ -124,15 +126,15 @@ def create_ob(
 
 
 def create_obs(
-    night_plan: Path | Dict | None = None,
+    night_plan: Path | dict | None = None,
     container_id: int | None = None,
-    targets: List[str] | None = None,
-    calibrators: List[List[str] | str] | None = None,
-    orders: List[List[str] | str] | None = None,
-    tags: List[List[str] | str] | None = None,
-    resolution: Dict[str, str] | List[str] | str | None = "low",
-    configuration: Dict[str, str] | List[str] | str | None = None,
-    modes: Dict[str, str] | List[str] | str | None = "gr",
+    targets: list[str] | None = None,
+    calibrators: list[list[str] | str] | None = None,
+    orders: list[list[str] | str] | None = None,
+    tags: list[list[str] | str] | None = None,
+    resolution: dict[str, str] | list[str] | str | None = "low",
+    configuration: dict[str, str] | list[str] | str | None = None,
+    modes: dict[str, str] | list[str] | str | None = "gr",
     user_name: str | None = None,
     store_password: bool | None = True,
     remove_password: bool | None = False,
@@ -146,42 +148,49 @@ def create_obs(
     ----------
     night_plan : path, optional
         A dictionary containing a parsed night plan. If given
-        it will automatically upload the obs to p2.
+        it will automatically upload the obs to P2. Defaults to `None`.
     container_id : int, optional
-        The id that specifies the container on p2.
+        The id that specifies the container on P2. Defaults to `None`.
     targets : list, optional
         A list of targets. If no night plan is given, this list
-        and the calibrators must be given.
+        and the calibrators must be given. Defaults to `None`.
     calibrators : list, optional
         A list of calibrators that must be given with the targets.
+        Defaults to `None`.
     orders : list, optional
         A list of the orders of the calibrators. If not given,
         it will be assumed that the calibrators are before the targets.
+        Defaults to `None`.
     tags : list, optional
         A list of the tags of the calibrators. If not given, it will
-        be "LN" for all calibrators.
+        be "LN" for all calibrators. Defaults to `None`.
     resolution : dict or list of str or str, optional
         A dictionary containing the resolution for each target or a list
         of resolutions for all targets or a single resolution for all targets.
-        Will only be used if no night plan is given.
+        Will only be used if no night plan is given. Defaults to `"low"`.
     configurations : dict or list of str or str, optional
         A dictionary containing the array configuration for each target or a list
         of array configurations for all targets or a single array configuration for all targets.
-        Will only be used if no night plan is given.
+        Will only be used if no night plan is given. Defaults to `None`.
     modes : dict or list of str or str, optional
         A dictionary containing the operational mode for each target or a list
         of operational modes for all targets or a single operational mode for all targets.
-        Will only be used if no night plan is given.
+        Will only be used if no night plan is given. Defaults to `"gr"`.
     user_name : str, optional
-        The p2 user name.
+        The P2 user name. Defaults to `None`.
+    store_password: bool, optional
+        If `True` the password will be stored in the keyring. Defaults to `True`.
+    remove_password: bool, optional
+        If `True` the password will be removed from the keyring. Defaults to `False`.
     server: str, optional
-        The server to connect to. Can be either "production" or "test".
-    output_dir: path, optional
+        The server to connect to. Must either be `"production"` or `"test"`.
+        Defaults to `"production"`.
+    output_dir : pathlib.Path, optional
         The output directory, where the (.obx)-files will be created in.
-        If left at "None" no files will be created.
+        If left at "None" no files will be created. Defaults to `None`.
     """
     if night_plan is None and output_dir is None and container_id is None:
-        raise IOError(
+        raise OSError(
             "Either output directory, container id or night plan must be provided!"
         )
 
@@ -201,7 +210,7 @@ def create_obs(
         night_plan = parse_night_plan_to_dict(night_plan)
 
     if night_plan is None:
-        raise IOError(
+        raise OSError(
             "Targets, calbirators and their orders must either input manually"
             "or a path to a night plan provided!"
         )
@@ -216,7 +225,7 @@ def create_obs(
         mode = parse_operational_mode(run_key)
         res = parse_resolution(run_key)
         ob_type = parse_observation_type(run_key)
-        for night in list(nights.values())[0]:
+        for night in next(iter(nights.values())):
             night.update(
                 {
                     "array": array or night["array"],

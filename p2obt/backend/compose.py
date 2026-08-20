@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import Dict, List, Tuple
 
 import astropy.units as u
 import numpy as np
@@ -29,7 +28,7 @@ def load_template(
     header: str,
     sub_header: str | None = None,
     operational_mode: str | None = None,
-) -> Dict:
+) -> dict:
     """Loads a template from a (.toml)-file.
 
     Parameters
@@ -39,10 +38,10 @@ def load_template(
     header : str
         The name of the specific template.
     sub_header : str, optional
-        The name of a sub-template.
+        The name of a sub-template. Defaults to `None`.
     operational_mode : str, optional
         The mode in which MATISSE is operated, either
-        "gra4mat" or "matisse".
+        `"gra4mat"` or `"matisse"`. Defaults to `None`.
 
     Returns
     -------
@@ -55,14 +54,14 @@ def load_template(
         return toml.load(toml_file)[header][sub_header]
 
 
-def write_dict(file, dictionary: Dict):
+def write_dict(file, dictionary: dict) -> None:
     """Iterates over the key and value pairs of a
     dictionary and writes them."""
     for key, value in dictionary.items():
         file.write(f'{key.ljust(40)}"{str(value)}"' + "\n")
 
 
-def write_ob(ob: Dict, ob_name: str, output_dir: Path) -> None:
+def write_ob(ob: dict, ob_name: str, output_dir: Path) -> None:
     """Writes the (.obx)-file to the specified directory"""
     out_file = Path(output_dir) / f"{ob_name}.obx"
     with open(out_file, "w+", encoding="utf-8") as obx_file:
@@ -74,12 +73,13 @@ def write_ob(ob: Dict, ob_name: str, output_dir: Path) -> None:
             else:
                 write_dict(obx_file, dictionary)
                 obx_file.write("\n\n")
+
     print(f"Created OB: '{ob_name}'.")
 
 
 # TODO: 'add_space' makes to many spaces. Fix at some point.
 def set_ob_name(
-    target: Dict | str,
+    target: dict | str,
     observation_type: str,
     sci_name: str | None = None,
     tag: str | None = None,
@@ -113,8 +113,8 @@ def set_ob_name(
 
 
 def get_observation_settings(
-    resolution: str, op_mode: str, array: List[str]
-) -> Tuple[str, float, float, bool]:
+    resolution: str, op_mode: str, array: list[str]
+) -> tuple[str, float, float, bool]:
     """Gets the observation settings from the `options` corresponding
     to the resolution, operational mode and array configuration.
 
@@ -140,7 +140,7 @@ def get_observation_settings(
     return resolution.upper(), integration_time, central_wl, photometry
 
 
-def format_proper_motions(target: Dict) -> Tuple[float, float]:
+def format_proper_motions(target: dict) -> tuple[float, float]:
     """Correctly formats the right ascension's and declination's
     proper motions."""
     if np.ma.filled(target.get("pmRA", 0), 0) != 0:
@@ -159,7 +159,7 @@ def format_proper_motions(target: Dict) -> Tuple[float, float]:
     return pmra, pmdec
 
 
-def format_ra_and_dec(target: Dict) -> Tuple[str, str]:
+def format_ra_and_dec(target: dict) -> tuple[str, str]:
     """Correctly formats the right ascension and declination."""
     if "local.RA" in target:
         return target["local.RA"], target["local.DEC"]
@@ -170,7 +170,7 @@ def format_ra_and_dec(target: Dict) -> Tuple[str, str]:
     return ra_hms, dec_dms
 
 
-def format_fluxes(target: Dict) -> Tuple[float | None, float | None]:
+def format_fluxes(target: dict) -> tuple[float | None, float | None]:
     """Correctly gets and formats the fluxes from the queried data."""
     flux_lband, flux_nband = None, None
     lband_keys = ["Lflux", "med-Lflux", "W1mag"]
@@ -191,12 +191,12 @@ def format_fluxes(target: Dict) -> Tuple[float | None, float | None]:
 
 
 def fill_header(
-    target: Dict,
+    target: dict,
     obs_type: str,
-    array: List[str],
+    array: list[str],
     sci_name: str | None = None,
     tag: str | None = None,
-) -> Dict:
+) -> dict:
     """Fill header dictionary with the information from the query.
 
     Parameters
@@ -254,8 +254,8 @@ def fill_header(
 
 
 def fill_acquisition(
-    target: Dict, op_mode: str, array: List[str], obs_type: str
-) -> Dict:
+    target: dict, op_mode: str, array: list[str], obs_type: str
+) -> dict:
     """Gets the for the operational mode correct acquisition template
     and then fills it in with the information from the query.
 
@@ -329,12 +329,12 @@ def fill_acquisition(
 
 
 def fill_observation(
-    target: Dict,
+    target: dict,
     resolution: str,
     obs_type: str,
     op_type: str,
-    array: List[str],
-) -> Dict:
+    array: list[str],
+) -> dict:
     """Gets the for the operational mode correct acquisition template
     and then fills it in with the information from the query.
 
@@ -366,13 +366,13 @@ def fill_observation(
 def compose_ob(
     target_name: str,
     ob_kind: str,
-    array: List[str],
+    array: list[str],
     mode: str = "st",
     sci_name: str | None = None,
     tag: str | None = None,
     resolution: str = "low",
     obs_type: str = "snapshot",
-) -> Dict:
+) -> dict:
     """Composes the dictionary
 
     Parameters
@@ -380,25 +380,25 @@ def compose_ob(
     target_name : str
         The target's name.
     ob_kind : str
-        The type of OB. If it is a science target ("sci") or a calibrator ("cal").
+        The type of OB. If it is a science target `"sci"` or a calibrator `"cal"`.
     array : list of str
         Determines the array configuration. Possible values are "UTs",
-        "small", "medium", "large", "extended".
+        `"small"`, `"medium"`, `"large"`, `"extended"`.
     mode : str, optional
-        The mode of operation for MATISSE. Can be either "st"/"standalone"
-        for the MATISSE-standalone mode or "gr"/"gra4mat" for GRA4MAT.
-        Default is standalone.
+        The mode of operation for MATISSE. Can be either `"st"`/`"standalone"`
+        for the MATISSE-standalone mode or `"gr"`/`"gra4mat"` for GRA4MAT.
+        Defaults to `"standalone"`.
     sci_name : str, optional
         The name of the science target. If the OB is a science OB, this
-        is None.
+        is None. Defaults to `None`.
     tag : str, optional
-        The calibrator tag (L, N or LN).
+        The calibrator tag (L, N or LN). Defaults to `None`.
     resolution : str, optional
-        The resolution of the OB. Can be either "low", "med" or "high".
+        The resolution of the OB. Can be either `"low"`, `"med"` or `"high"`.
     obs_type : str, optional
-        The type of the observation. Can be "snapshot", "ts/time/time series",
-        or "im/imaging", for "snapshot", "time-series", or "imaging" respectively.
-        Default is "snapshot".
+        The type of the observation. Can be `"snapshot"`, `"ts/time/time series"`,
+        or `"im/imaging"`, for `"snapshot"`, `"time-series"`, or `"imaging"` respectively.
+        Defaults to `"snapshot"`.
 
     Returns
     -------
@@ -406,7 +406,7 @@ def compose_ob(
         A dictionary containg all the target's information.
     """
     if any(x not in ["UTs", "small", "medium", "large", "extended"] for x in array):
-        raise IOError(
+        raise OSError(
             "Unknown array configuration provided!"
             " Choose from 'UTs', 'small', 'medium',"
             " 'large' or 'extended'."
@@ -414,7 +414,7 @@ def compose_ob(
 
     ob_kind = ob_kind.lower()
     if ob_kind not in ["sci", "cal"]:
-        raise IOError(
+        raise OSError(
             "Unknown observation type provided!"
             " Choose from 'SCI' or 'CAL', for "
             "a science target or a calibrator."
@@ -426,7 +426,7 @@ def compose_ob(
     elif mode in ["gr", "gra4mat"]:
         mode = "gra4mat"
     else:
-        raise IOError(
+        raise OSError(
             "Unknown operational mode provided!"
             " Choose from 'st'/'standalone' or"
             " 'gr'/'gra4mat'."
@@ -434,7 +434,7 @@ def compose_ob(
 
     resolution = resolution.lower()
     if resolution not in ["low", "med", "high"]:
-        raise IOError(
+        raise OSError(
             "Unknown resolution provided!" " Choose from 'low', 'med' or 'high'."
         )
 

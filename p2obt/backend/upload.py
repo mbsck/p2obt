@@ -1,6 +1,5 @@
 import getpass
 import logging
-from typing import Dict
 
 import keyring
 import numpy as np
@@ -84,7 +83,7 @@ README_TEMPLATE = {
 }
 
 
-def apply_mapping(content: Dict, mapping: Dict) -> None:
+def apply_mapping(content: dict, mapping: dict) -> None:
     """Applies mapping to make template serializable."""
     for key, value in content.items():
         if key in mapping:
@@ -233,7 +232,7 @@ def create_remote_container(
 
 
 def create_ob(
-    connection: p2api.p2api.ApiConnection, container_id: int, header: Dict
+    connection: p2api.p2api.ApiConnection, container_id: int, header: dict
 ) -> int:
     """Creates an OB on p2.
 
@@ -243,7 +242,7 @@ def create_ob(
         The P2 python api connection.
     container_id : int
         The id that specifies the container on p2.
-    header : Dict
+    header : dict
         The header of the OB.
 
     Returns
@@ -270,7 +269,7 @@ def create_ob(
 
 
 def add_template(
-    connection: p2api.p2api.ApiConnection, ob_id: int, ob: Dict, template_kind: str
+    connection: p2api.p2api.ApiConnection, ob_id: int, ob: dict, template_kind: str
 ) -> None:
     """Adds template to an (.obx)-file on the p2.
 
@@ -294,7 +293,7 @@ def add_template(
 
 
 def upload_ob(
-    connection: p2api.p2api.ApiConnection, ob: Dict, container_id: int | None = None
+    connection: p2api.p2api.ApiConnection, ob: dict, container_id: int | None = None
 ) -> None:
     """
 
